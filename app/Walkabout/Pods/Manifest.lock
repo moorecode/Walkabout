@@ -1,18 +1,29 @@
 PODS:
+  - Alamofire (4.5.0)
   - Mapbox-iOS-SDK (3.6.0)
+  - Realm (2.9.0):
+    - Realm/Headers (= 2.9.0)
+  - Realm/Headers (2.9.0)
+  - RealmSwift (2.9.0):
+    - Realm (= 2.9.0)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - Alamofire
   - Mapbox-iOS-SDK (~> 3.6)
+  - RealmSwift
   - SnapKit
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Mapbox-iOS-SDK: c911b1875a00f12bb74253b763ac483425bd4225
+  Realm: f14ab1673502559cb16592ddb8f383c474c13e05
+  RealmSwift: 16ad2c187042c4934f49750375582fe508627dcb
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 454d806e453276e1ee40a182f79ea469777a40f2
+PODFILE CHECKSUM: 643ddac8a9152519c20bec7cce9a2f52ea2ee654
 
 COCOAPODS: 1.2.1

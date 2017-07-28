@@ -15,6 +15,7 @@
 		BF54CEC21F2B4A630002681C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC11F2B4A630002681C /* Assets.xcassets */; };
 		BF54CEC51F2B4A630002681C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */; };
 		BF54CED01F2B4A640002681C /* WalkaboutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CECF1F2B4A640002681C /* WalkaboutTests.swift */; };
+		BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD582B11F2B6F0600E39038 /* MapItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		BF54CECB1F2B4A640002681C /* WalkaboutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalkaboutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF54CECF1F2B4A640002681C /* WalkaboutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutTests.swift; sourceTree = "<group>"; };
 		BF54CED11F2B4A640002681C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFD582B11F2B6F0600E39038 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
 		C772AF4F8EBA7D0A52C15C1F /* Pods-WalkaboutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkabout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				BF54CEC11F2B4A630002681C /* Assets.xcassets */,
 				BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */,
 				BF54CEC61F2B4A630002681C /* Info.plist */,
+				BFD582B11F2B6F0600E39038 /* MapItem.swift */,
 			);
 			path = Walkabout;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			files = (
 				BF54CEBD1F2B4A630002681C /* ViewController.swift in Sources */,
 				BF54CEBB1F2B4A630002681C /* AppDelegate.swift in Sources */,
+				BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +561,7 @@
 				BF54CED61F2B4A640002681C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF54CED71F2B4A640002681C /* Build configuration list for PBXNativeTarget "WalkaboutTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +570,7 @@
 				BF54CED91F2B4A640002681C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

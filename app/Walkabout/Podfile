@@ -9,7 +9,9 @@ target 'Walkabout' do
   pod 'Mapbox-iOS-SDK', '~> 3.6'
   pod 'SwiftyJSON'
   pod 'SnapKit'
-
+  pod 'Alamofire'
+  pod 'RealmSwift'
+  
 
   target 'WalkaboutTests' do
     inherit! :search_paths
