@@ -9,7 +9,6 @@ target 'Walkabout' do
   pod 'Mapbox-iOS-SDK', '~> 3.6'
   pod 'SwiftyJSON'
   pod 'SnapKit'
-  pod 'ChameleonFramework/Swift'
 
 
   target 'WalkaboutTests' do

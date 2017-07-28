@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Mapbox
+import SnapKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let url = URL(string: "mapbox://styles/mapbox/outdoors-v10")
+        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(mapView)
+        
     }
 
     override func didReceiveMemoryWarning() {
