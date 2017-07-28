@@ -1,0 +1,6 @@
+framework module Pods_WalkaboutTests {
+  umbrella header "Pods-WalkaboutTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

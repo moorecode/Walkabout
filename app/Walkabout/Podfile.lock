@@ -1,0 +1,23 @@
+PODS:
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - Mapbox-iOS-SDK (3.6.0)
+  - SnapKit (3.2.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - ChameleonFramework/Swift
+  - Mapbox-iOS-SDK (~> 3.6)
+  - SnapKit
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Mapbox-iOS-SDK: c911b1875a00f12bb74253b763ac483425bd4225
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 4e25f0b58d59ff6f1c1befb246ad7fa7272c9317
+
+COCOAPODS: 1.2.1

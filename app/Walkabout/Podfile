@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Walkabout' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Walkabout
+  pod 'Mapbox-iOS-SDK', '~> 3.6'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
+  pod 'ChameleonFramework/Swift'
+
+
+  target 'WalkaboutTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
