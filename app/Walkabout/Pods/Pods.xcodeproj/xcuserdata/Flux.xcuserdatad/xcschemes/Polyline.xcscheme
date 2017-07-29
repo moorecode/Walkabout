@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DE3390A305A4EDF97B3ACCC388703519'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = '88D8521C831E57D45E4696F78689DC3D'
+               BlueprintName = 'Polyline'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'Polyline.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

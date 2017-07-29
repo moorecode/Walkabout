@@ -864,7 +864,7 @@
 				DEVELOPMENT_TEAM = YRKSKTGWBF;
 				IBSC_MODULE = WalkaboutWatch_Extension;
 				INFOPLIST_FILE = WalkaboutWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -881,7 +881,7 @@
 				DEVELOPMENT_TEAM = YRKSKTGWBF;
 				IBSC_MODULE = WalkaboutWatch_Extension;
 				INFOPLIST_FILE = WalkaboutWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -898,7 +898,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				INFOPLIST_FILE = "WalkaboutWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode.watchkitapp.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -915,7 +915,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				INFOPLIST_FILE = "WalkaboutWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode.watchkitapp.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
