@@ -17,6 +17,8 @@ import SwiftyButton
 
 class ViewController: UIViewController {
     
+    let walkaboutButton = PressableButton()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,25 +37,33 @@ class ViewController: UIViewController {
         let center = CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478)
         mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
-        let walkaboutButton = PressableButton()
         walkaboutButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
-        walkaboutButton.setTitle("Go Waljabout", for: .normal)
+        walkaboutButton.depth = 3.0
+        walkaboutButton.setTitle("Walkabout", for: .normal)
+        
+        walkaboutButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
         view.addSubview(walkaboutButton)
         
         walkaboutButton.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(view.snp.bottomMargin).offset(-16)
             make.left.equalTo(view.snp.leftMargin).offset(16)
             make.right.equalTo(view.snp.rightMargin).offset(-16)
+            make.height.equalTo(50)
         }
         
-        walkaboutButton.addTarget(self, action: #selector(clickMe), for: .touchUpInside)
+        walkaboutButton.addTarget(self, action: #selector(walkaboutButtonTapped), for: .touchUpInside)
         
     }
     
-    @objc func clickMe(sender:UIButton!) {
+    @objc func walkaboutButtonTapped(sender:UIButton!) {
         
         let setupView = SetupViewController()
         setupView.preferredContentSize = CGSize(width: 300, height: 300)
+        setupView.modalPresentationStyle = .popover
+        setupView.popoverPresentationController?.permittedArrowDirections = .down
+        setupView.popoverPresentationController?.delegate = self
+        setupView.popoverPresentationController?.sourceView = walkaboutButton
+        setupView.popoverPresentationController?.sourceRect = walkaboutButton.bounds
         self.present(setupView, animated: true, completion: nil)
     }
     
@@ -86,6 +96,13 @@ extension ViewController: MGLMapViewDelegate {
         mapView.setCamera(camera, withDuration: 120, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
     }
     
+}
+
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
+    }
 }
 
 
