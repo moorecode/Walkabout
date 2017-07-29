@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     
     var url = URL(string: "")
     
+    var pointRegister: [String: AnyClass] = [:]
+    
     override func viewDidLoad() {
         
         
@@ -75,7 +77,26 @@ class ViewController: UIViewController {
             point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(t.lat), longitude: CLLocationDegrees(t.lon))
             point.title = "toilet"
             pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(t.lat)) + String(CLLocationDegrees(t.lon))] = Toilet.self
         }
+        let artItems = realm.objects(ArtItem.self)
+        for ai in artItems {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(ai.lat), longitude: CLLocationDegrees(ai.lon))
+            point.title = "art"
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(ai.lat)) + String(CLLocationDegrees(ai.lon))] = ArtItem.self
+        }
+        let bbqs = realm.objects(Barbeque.self)
+        for b in bbqs {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(b.lat), longitude: CLLocationDegrees(b.lon))
+            point.title = "bbq"
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(b.lat)) + String(CLLocationDegrees(b.lon))] = Barbeque.self
+        }
+
+
         print(pointAnnotations)
         map.addAnnotations(pointAnnotations)
         
@@ -188,7 +209,7 @@ extension ViewController: MGLMapViewDelegate {
         
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
-            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier, type: DogPark.self)
+            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier, type: pointRegister[String(annotation.coordinate.latitude) + String(annotation.coordinate.longitude)]!)
             annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
             annotationView!.backgroundColor = .clear
             }
