@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     let walkaboutButton = PressableButton()
     let mapView = MGLMapView(frame: CGRect.zero, styleURL: URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy"))
     
+    var url = URL(string: "")
     
     override func viewDidLoad() {
         
@@ -51,6 +52,18 @@ class ViewController: UIViewController {
         }
         
         walkaboutButton.addTarget(self, action: #selector(walkaboutButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    @objc func screenBrightnessDidChange(_ notification: Notification) {
+        
+        if UIScreen.main.brightness > 0.5 {
+            url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
+        }
+            
+        else {
+            url = URL(string: "mapbox://styles/jbwhitcombe/cj5okh01801t42sr1d31s324l")
+        }
         
     }
     
@@ -118,7 +131,7 @@ extension ViewController: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        return MGLAnnotationImage(image: #imageLiteral(resourceName: "bench"), reuseIdentifier: "Furniture")
+        return MGLAnnotationImage(image: #imageLiteral(resourceName: "toilet"), reuseIdentifier: "Furniture")
     }
     
 }
