@@ -65,24 +65,41 @@ class SetupViewController: UIViewController {
             make.left.equalTo(view.snp.leftMargin)
         }
         
-        
         // Create the stack view with buttons
         let dogButton = FlatButton()
+        let dogImage = UIImageView()
+        dogImage.image = #imageLiteral(resourceName: "dog")
         dogButton.setTitle("Doggo", for: .normal)
         let playgroundButton = FlatButton()
+        let playgroundImage = UIImageView()
+        playgroundImage.image = #imageLiteral(resourceName: "playground")
         playgroundButton.setTitle("Playgrounds", for: .normal)
         let artButton = FlatButton()
+        let artImage = UIImageView()
+        artImage.image = #imageLiteral(resourceName: "art")
         artButton.setTitle("Art", for: .normal)
         let benchButton = FlatButton()
+        let benchImage = UIImageView()
+        benchImage.image = #imageLiteral(resourceName: "bench")
         benchButton.setTitle("Benches", for: .normal)
         let fountainButton = FlatButton()
+        let fountainImage = UIImageView()
+        fountainImage.image = #imageLiteral(resourceName: "water")
         fountainButton.setTitle("Fountain", for: .normal)
         let toiletButton = FlatButton()
+        let toiletImage = UIImageView()
+        toiletImage.image = #imageLiteral(resourceName: "toilet")
         toiletButton.setTitle("Toilet", for: .normal)
         let fitnessButton = FlatButton()
+        let fitnessImage = UIImageView()
+        fitnessImage.image = #imageLiteral(resourceName: "fitness")
         fitnessButton.setTitle("Fitness", for: .normal)
         let barbequeButton = FlatButton()
+        let barbequeImage = UIImageView()
+        barbequeImage.image = #imageLiteral(resourceName: "barbeque")
         barbequeButton.setTitle("Barbeque", for: .normal)
+        
+        let images = [dogImage, playgroundImage, artImage, benchImage, fountainImage, toiletImage, fitnessImage, barbequeImage]
         
         let buttons = [dogButton, playgroundButton, artButton, benchButton, fountainButton, toiletButton, fitnessButton, barbequeButton]
         
@@ -99,6 +116,14 @@ class SetupViewController: UIViewController {
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
+        
+        let stackView2 = UIStackView(arrangedSubviews: images)
+        stackView2.axis = .vertical
+        stackView2.distribution = .fillEqually
+        stackView2.alignment = .fill
+        stackView2.spacing = 5
+        stackView2.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView2)
         
         
         // Add the start button
@@ -118,7 +143,14 @@ class SetupViewController: UIViewController {
             make.top.equalTo(hello.snp.bottom).offset(8)
             make.bottom.equalTo(startButton.snp.top).offset(-8)
             make.right.equalTo(view.snp.rightMargin)
-            make.left.equalTo(view.snp.leftMargin)
+        }
+        
+        stackView2.snp.makeConstraints { (make) in
+            make.top.equalTo(hello.snp.bottom).offset(8)
+            make.bottom.equalTo(startButton.snp.top).offset(-8)
+            make.right.equalTo(stackView.snp.left)
+            make.left.equalTo(view.snp.left).offset(6)
+            make.width.equalTo(stackView.snp.height).dividedBy(8)
         }
     }
     

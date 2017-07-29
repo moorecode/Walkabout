@@ -9,11 +9,12 @@
 import Foundation
 import MapboxDirections
 import Mapbox
+import Polyline
 
 class DirectionsHelpers {
     
     func GenerateAndDisplay(waypoints:[Waypoint], mapView:MGLMapView){
-        
+    
         let directions = Directions.shared
         
         let options = RouteOptions(waypoints: waypoints, profileIdentifier: .walking)
