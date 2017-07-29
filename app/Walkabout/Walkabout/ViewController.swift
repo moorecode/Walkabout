@@ -14,6 +14,8 @@ import SwiftyJSON
 import RealmSwift
 import ChameleonFramework
 import SwiftyButton
+import MapboxDirections
+import Polyline
 
 class ViewController: UIViewController {
     
@@ -33,11 +35,11 @@ class ViewController: UIViewController {
         if UIScreen.main.brightness > 0.5 {
             url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
         }
-        
+            
         else {
             url = URL(string: "mapbox://styles/jbwhitcombe/cj5okh01801t42sr1d31s324l")
         }
-
+        
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.delegate = self
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -66,7 +68,15 @@ class ViewController: UIViewController {
         
     }
     
-    @objc func screenBrightnessDidChange(_ notification: Notification) {
+    func commenceRouteDrawing() {
+        let helper = DirectionsHelpers.init()
+        let point1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478))
+        let point2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.279, longitude: 149.05))
+        let waypoints = [point1, point2]
+        helper.GenerateAndDisplay(waypoints:waypoints, mapView:self.mapView)
+    }
+    
+    func screenBrightnessDidChange(_ notification: Notification) {
         
         if UIScreen.main.brightness > 0.5 {
             url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
@@ -102,9 +112,21 @@ class ViewController: UIViewController {
     
     @objc func walkaboutButtonTapped(sender:UIButton!) {
         
+        // Setup completion handler for setUpViewController
+        let completionHandler:(SetupViewController)->Void = { childVC in
+            
+            // Call whatever the fuck you want here
+            
+            self.commenceRouteDrawing()
+            
+        }
+        
         let setupView = SetupViewController()
         setupView.preferredContentSize = CGSize(width: 300, height: 400)
         setupView.modalPresentationStyle = .popover
+        
+        // Assigns the completion handler to the function above
+        setupView.completionHandler = completionHandler
         setupView.popoverPresentationController?.permittedArrowDirections = .down
         setupView.popoverPresentationController?.delegate = self
         setupView.popoverPresentationController?.sourceView = walkaboutButton
