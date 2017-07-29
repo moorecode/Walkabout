@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
         walkaboutButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
-        walkaboutButton.depth = 3.0
+            
         walkaboutButton.setTitle("Walkabout", for: .normal)
         
         walkaboutButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     @objc func walkaboutButtonTapped(sender:UIButton!) {
         
         let setupView = SetupViewController()
-        setupView.preferredContentSize = CGSize(width: 300, height: 300)
+        setupView.preferredContentSize = CGSize(width: 350, height: 500)
         setupView.modalPresentationStyle = .popover
         setupView.popoverPresentationController?.permittedArrowDirections = .down
         setupView.popoverPresentationController?.delegate = self

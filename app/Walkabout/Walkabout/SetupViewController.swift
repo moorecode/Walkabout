@@ -15,29 +15,64 @@ class SetupViewController: UIViewController {
     
     let closeButton = PressableButton()
     let startButton = PressableButton()
-    let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-        // Do any additional setup after loading the view.
         
-        // Create the stack view
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
+        let hello = UILabel()
+        let hour = Calendar.current.dateComponents([.hour], from: Date())
         
+        if hour.hour! < 8 {
+            hello.text = "Early Morning"
+        }
+        else if hour.hour! < 11 {
+            hello.text = "Late Morning"
+        }
+        else if hour.hour! < 15 {
+            hello.text = "Early Afternoon"
+        }
+        else if hour.hour! < 17 {
+            hello.text = "Afternoon"
+        }
+        else if hour.hour! < 20 {
+            hello.text = "Evening"
+        }
+        else {
+            hello.text = "Night"
+        }
+        
+        hello.text = hello.text! + " Walkabout"
+        hello.minimumScaleFactor = 0.5
+        
+        hello.font = UIFont(name: "Archive", size: 30)
+        hello.textAlignment = .center
+        hello.textColor = UIColor.flatGray()
+        view.addSubview(hello)
+        hello.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.topMargin).offset(8)
+            make.right.equalTo(view.snp.rightMargin)
+            make.left.equalTo(view.snp.leftMargin)
+        }
+        
+        
+        // Create the stack view with buttons
         let dogButton = FlatButton()
+        dogButton.setTitle("Doggo", for: .normal)
         let playgroundButton = FlatButton()
+        playgroundButton.setTitle("Playgrounds", for: .normal)
         let artButton = FlatButton()
+        artButton.setTitle("Art", for: .normal)
         let benchButton = FlatButton()
+        benchButton.setTitle("Benches", for: .normal)
         let fountainButton = FlatButton()
+        fountainButton.setTitle("Fountain", for: .normal)
         let toiletButton = FlatButton()
+        toiletButton.setTitle("Toilet", for: .normal)
         let fitnessButton = FlatButton()
+        fitnessButton.setTitle("Fitness", for: .normal)
         let barbequeButton = FlatButton()
+        barbequeButton.setTitle("Barbeque", for: .normal)
         
         let buttons = [dogButton, playgroundButton, artButton, benchButton, fountainButton, toiletButton, fitnessButton, barbequeButton]
         
@@ -46,6 +81,15 @@ class SetupViewController: UIViewController {
             button.titleLabel?.font = UIFont(name: "Archive", size: 26)
             button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
         }
+        
+        let stackView = UIStackView(arrangedSubviews: buttons)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
+        
         
         // Add the start button
         view.addSubview(startButton)
@@ -59,6 +103,13 @@ class SetupViewController: UIViewController {
             make.right.equalTo(view.snp.rightMargin)
             make.left.equalTo(view.snp.leftMargin)
         }
+        
+        stackView.snp.makeConstraints { (make) in
+            make.top.equalTo(hello.snp.bottom).offset(8)
+            make.bottom.equalTo(startButton.snp.top).offset(-8)
+            make.right.equalTo(view.snp.rightMargin)
+            make.left.equalTo(view.snp.leftMargin)
+        }
     }
     
     @objc func close() {
@@ -69,7 +120,7 @@ class SetupViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            sender.color = UIColor.flatLime()
+            sender.color = UIColor.flatGreen()
         }
         else {
             sender.color = UIColor.flatGray()
