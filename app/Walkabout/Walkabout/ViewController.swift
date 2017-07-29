@@ -16,8 +16,9 @@ import ChameleonFramework
 import SwiftyButton
 import MapboxDirections
 import Polyline
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let walkaboutButton = PressableButton()
     var mapView: MGLMapView?
@@ -28,8 +29,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
         super.viewDidLoad()
+        
+        LocationManager.delegate = self
+        LocationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         // Observe screen brightness
         NotificationCenter.default.addObserver(self,selector: #selector(screenBrightnessDidChange(_:)),name: NSNotification.Name.UIScreenBrightnessDidChange,object: nil)
@@ -103,6 +106,7 @@ class ViewController: UIViewController {
     }
     
     func commenceRouteDrawing() {
+        mapView?.showsUserLocation = true
         let helper = DirectionsHelpers.init()
         let point1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478))
         let point2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.279, longitude: 149.05))
@@ -123,6 +127,10 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        LocationManager.requestAlwaysAuthorization()
+        LocationManager.startUpdatingLocation()
+        
 //        let realm = try! Realm()
 //        let artFacilities = realm.objects(ArtFacility.self)
 //        let artItems = realm.objects(ArtItem.self)
