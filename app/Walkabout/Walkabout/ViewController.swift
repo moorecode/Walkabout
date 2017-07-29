@@ -20,36 +20,36 @@ import Polyline
 class ViewController: UIViewController {
     
     let walkaboutButton = PressableButton()
-    let mapView = MGLMapView(frame: CGRect.zero, styleURL: URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy"))
+    var mapView: MGLMapView?
     
     var url = URL(string: "")
     
     override func viewDidLoad() {
         
+        
+        super.viewDidLoad()
+        
         // Observe screen brightness
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(screenBrightnessDidChange(_:)),
-                                               name: NSNotification.Name.UIScreenBrightnessDidChange,
-                                               object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(screenBrightnessDidChange(_:)),name: NSNotification.Name.UIScreenBrightnessDidChange,object: nil)
         
         if UIScreen.main.brightness > 0.5 {
             url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
-        }
-            
-        else {
+        }else {
             url = URL(string: "mapbox://styles/jbwhitcombe/cj5okh01801t42sr1d31s324l")
         }
         
-        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
-        mapView.delegate = self
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.logoView.isHidden = true
-        mapView.attributionButton.isHidden = true
-        mapView.compassView.isHidden = true
-        view.addSubview(mapView)
+        // Do any additional setup after loading the view, typically from a nib.
+        mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        guard let map = mapView else {fatalError("Map could no be initialzed")}
+        map.delegate = self
+        map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        map.logoView.isHidden = true
+        map.attributionButton.isHidden = true
+        map.compassView.isHidden = true
+        view.addSubview(map)
         
         let center = CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478)
-        mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
+        map.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
         walkaboutButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
         walkaboutButton.setTitle("Walkabout", for: .normal)
@@ -66,6 +66,19 @@ class ViewController: UIViewController {
         
         walkaboutButton.addTarget(self, action: #selector(walkaboutButtonTapped), for: .touchUpInside)
         
+        
+        let realm = try! Realm()
+        let toilets = realm.objects(Toilet.self)
+        var pointAnnotations = [MGLPointAnnotation]()
+        for t in toilets {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(t.lat), longitude: CLLocationDegrees(t.lon))
+            point.title = "toilet"
+            pointAnnotations.append(point)
+        }
+        print(pointAnnotations)
+        map.addAnnotations(pointAnnotations)
+        
     }
     
     func commenceRouteDrawing() {
@@ -73,7 +86,7 @@ class ViewController: UIViewController {
         let point1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478))
         let point2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.279, longitude: 149.05))
         let waypoints = [point1, point2]
-        helper.GenerateAndDisplay(waypoints:waypoints, mapView:self.mapView)
+        helper.GenerateAndDisplay(waypoints:waypoints, mapView:self.mapView!)
     }
     
     func screenBrightnessDidChange(_ notification: Notification) {
@@ -89,25 +102,23 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let realm = try! Realm()
+//        let realm = try! Realm()
 //        let artFacilities = realm.objects(ArtFacility.self)
 //        let artItems = realm.objects(ArtItem.self)
 //        let drinkingFountains = realm.objects(DrinkingFountain.self)
 //        let dogParks = realm.objects(DogPark.self)
 //        let finessSites = realm.objects(FitnessSites.self)
 //        let bbqs = realm.objects(Barbeque.self)
-        let furniture = realm.objects(Furniture.self)
+//        let furniture = realm.objects(Furniture.self)
 //        let toilets = realm.objects(Toilet.self)
 //        
-        for f in furniture {
-            let annotation = MGLPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
-            annotation.title = "Public Furniture"
-            annotation.subtitle = f.type
-            mapView.addAnnotation(annotation)
-        }
-        
-        
+//        for f in furniture {
+//            let annotation = MGLPointAnnotation()
+//            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
+//            annotation.title = "Public Furniture"
+//            annotation.subtitle = f.type
+//            mapView!.addAnnotation(annotation)
+//        }
     }
     
     @objc func walkaboutButtonTapped(sender:UIButton!) {
@@ -163,8 +174,26 @@ extension ViewController: MGLMapViewDelegate {
         mapView.setCamera(camera, withDuration: 120, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
     }
     
-    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        return MGLAnnotationImage(image: #imageLiteral(resourceName: "toilet"), reuseIdentifier: "Furniture")
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        // This example is only concerned with point annotations.
+        guard annotation is MGLPointAnnotation else {
+            return nil
+        }
+        
+        // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
+        let reuseIdentifier = "Furniture"
+        
+        // For better performance, always try to reuse existing annotations.
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        // If there’s no reusable annotation view available, initialize a new one.
+        if annotationView == nil {
+            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            annotationView!.backgroundColor = .clear
+            }
+        
+        return annotationView
     }
     
 }
@@ -176,4 +205,26 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     }
 }
 
+
+class CustomAnnotationView: MGLAnnotationView {
+    
+    let imageView = UIImageView()
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        addSubview(imageView)
+        imageView.frame = bounds
+        imageView.contentMode = .scaleToFill
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        scalesWithViewingDistance = true
+        imageView.image = #imageLiteral(resourceName: "bench")
+
+    }
+}
 
