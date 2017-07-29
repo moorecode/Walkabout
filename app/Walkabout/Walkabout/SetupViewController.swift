@@ -15,47 +15,65 @@ class SetupViewController: UIViewController {
     
     let closeButton = PressableButton()
     let startButton = PressableButton()
+    let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
         // Do any additional setup after loading the view.
         
-        // Add the close button
-        view.addSubview(closeButton)
-        closeButton.setTitle("Back", for: .normal)
-        closeButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
-        closeButton.colors = .init(button: UIColor.flatWatermelon(), shadow: UIColor.flatWatermelonColorDark())
-        closeButton.shadowHeight = 10
-        closeButton.cornerRadius = 8
-        closeButton.depth = 3
-        closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
-        closeButton.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
-            make.bottom.equalTo(view.snp.bottomMargin)
-            make.left.equalTo(view.snp.leftMargin)
-            make.width.equalTo(view.snp.width).dividedBy(4)
+        // Create the stack view
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
+        
+        let dogButton = FlatButton()
+        let playgroundButton = FlatButton()
+        let artButton = FlatButton()
+        let benchButton = FlatButton()
+        let fountainButton = FlatButton()
+        let toiletButton = FlatButton()
+        let fitnessButton = FlatButton()
+        let barbequeButton = FlatButton()
+        
+        let buttons = [dogButton, playgroundButton, artButton, benchButton, fountainButton, toiletButton, fitnessButton, barbequeButton]
+        
+        for button in buttons {
+            button.color = UIColor.flatGray()
+            button.titleLabel?.font = UIFont(name: "Archive", size: 26)
+            button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
         }
         
         // Add the start button
         view.addSubview(startButton)
         startButton.setTitle("Start", for: .normal)
         startButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
-        startButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
-        startButton.shadowHeight = 10
-        startButton.cornerRadius = 8
-        startButton.depth = 3
+        startButton.colors = .init(button: UIColor.flatOrange(), shadow: UIColor.flatOrangeColorDark())
         startButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         startButton.snp.makeConstraints { (make) in
             make.height.equalTo(40)
-            make.bottom.equalTo(view.snp.bottomMargin)
+            make.bottom.equalTo(view.snp.bottomMargin).offset(-8)
             make.right.equalTo(view.snp.rightMargin)
-            make.left.equalTo(closeButton.snp.rightMargin).offset(16)
+            make.left.equalTo(view.snp.leftMargin)
         }
     }
     
     @objc func close() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func toggle(sender: FlatButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            sender.color = UIColor.flatLime()
+        }
+        else {
+            sender.color = UIColor.flatGray()
+        }
     }
 
     override func didReceiveMemoryWarning() {
