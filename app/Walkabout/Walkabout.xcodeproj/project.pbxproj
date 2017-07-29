@@ -10,8 +10,9 @@
 		177857736266D2BA38C6C27D /* Pods_WalkaboutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68078642CDA0DFB001CEC147 /* Pods_WalkaboutTests.framework */; };
 		A5CEB3DE7B0583DA69DAFE85 /* Pods_WalkaboutWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A08556A60FD43BAD7EF18 /* Pods_WalkaboutWatch_Extension.framework */; };
 		B2CE477CE5F28541FA42E8BD /* Pods_Walkabout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */; };
+		BF517A061F2C4E9A003889A1 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF517A051F2C4E9A003889A1 /* SetupViewController.swift */; };
 		BF54CEBB1F2B4A630002681C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CEBA1F2B4A630002681C /* AppDelegate.swift */; };
-		BF54CEBD1F2B4A630002681C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CEBC1F2B4A630002681C /* ViewController.swift */; };
+		BF54CEBD1F2B4A630002681C /* ViewControllerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CEBC1F2B4A630002681C /* ViewControllerb.swift */; };
 		BF54CEC01F2B4A630002681C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEBE1F2B4A630002681C /* Main.storyboard */; };
 		BF54CEC21F2B4A630002681C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC11F2B4A630002681C /* Assets.xcassets */; };
 		BF54CEC51F2B4A630002681C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */; };
@@ -99,9 +100,10 @@
 		6C714A43931E13FA5F59E584 /* Pods-Walkabout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkabout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walkabout/Pods-Walkabout.debug.xcconfig"; sourceTree = "<group>"; };
 		934E3B4228C70330DB6B132E /* Pods-WalkaboutWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutWatch Extension/Pods-WalkaboutWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		B947C83DCEE1FEAFA88E47A2 /* Pods-WalkaboutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF517A051F2C4E9A003889A1 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		BF54CEB71F2B4A630002681C /* Walkabout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walkabout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF54CEBA1F2B4A630002681C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF54CEBC1F2B4A630002681C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF54CEBC1F2B4A630002681C /* ViewControllerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerb.swift; sourceTree = "<group>"; };
 		BF54CEBF1F2B4A630002681C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF54CEC11F2B4A630002681C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF54CEC41F2B4A630002681C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -214,13 +216,14 @@
 			children = (
 				BF65FE311F2BFC2300DA110B /* Data */,
 				BF54CEBA1F2B4A630002681C /* AppDelegate.swift */,
-				BF54CEBC1F2B4A630002681C /* ViewController.swift */,
+				BF54CEBC1F2B4A630002681C /* ViewControllerb.swift */,
 				BF54CEBE1F2B4A630002681C /* Main.storyboard */,
 				BF54CEC11F2B4A630002681C /* Assets.xcassets */,
 				BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */,
 				BF54CEC61F2B4A630002681C /* Info.plist */,
 				BFD582B11F2B6F0600E39038 /* MapItem.swift */,
 				BFEA6C581F2C4274009A995F /* DirectionHelper.swift */,
+				BF517A051F2C4E9A003889A1 /* SetupViewController.swift */,
 			);
 			path = Walkabout;
 			sourceTree = "<group>";
@@ -606,7 +609,8 @@
 				BF65FE331F2BFC9300DA110B /* ArtFacility.swift in Sources */,
 				BF65FE3B1F2C02CD00DA110B /* Beach.swift in Sources */,
 				BF65FE391F2C020C00DA110B /* DogPark.swift in Sources */,
-				BF54CEBD1F2B4A630002681C /* ViewController.swift in Sources */,
+				BF517A061F2C4E9A003889A1 /* SetupViewController.swift in Sources */,
+				BF54CEBD1F2B4A630002681C /* ViewControllerb.swift in Sources */,
 				BF54CEBB1F2B4A630002681C /* AppDelegate.swift in Sources */,
 				BF65FE451F2C088300DA110B /* Playground.swift in Sources */,
 				BF65FE3F1F2C04C200DA110B /* Barbeque.swift in Sources */,
