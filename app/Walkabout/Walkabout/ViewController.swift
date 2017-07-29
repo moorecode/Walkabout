@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
         walkaboutButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
-        walkaboutButton.depth = 3.0
         walkaboutButton.setTitle("Walkabout", for: .normal)
         
         walkaboutButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
@@ -52,6 +51,28 @@ class ViewController: UIViewController {
         }
         
         walkaboutButton.addTarget(self, action: #selector(walkaboutButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let realm = try! Realm()
+//        let artFacilities = realm.objects(ArtFacility.self)
+//        let artItems = realm.objects(ArtItem.self)
+//        let drinkingFountains = realm.objects(DrinkingFountain.self)
+//        let dogParks = realm.objects(DogPark.self)
+//        let finessSites = realm.objects(FitnessSites.self)
+//        let bbqs = realm.objects(Barbeque.self)
+        let furniture = realm.objects(Furniture.self)
+//        let toilets = realm.objects(Toilet.self)
+        
+        for f in furniture {
+            let annotation = MGLPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736)
+            annotation.title = "Public Furniture"
+            annotation.subtitle = f.type
+            mapView.addAnnotation(annotation)
+        }
+        
         
     }
     
