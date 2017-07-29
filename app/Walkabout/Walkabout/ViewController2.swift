@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     @objc func walkaboutButtonTapped(sender:UIButton!) {
         
         let setupView = SetupViewController()
-        setupView.preferredContentSize = CGSize(width: 300, height: 300)
+        setupView.preferredContentSize = CGSize(width: 300, height: 400)
         setupView.modalPresentationStyle = .popover
         setupView.popoverPresentationController?.permittedArrowDirections = .down
         setupView.popoverPresentationController?.delegate = self
