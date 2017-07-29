@@ -33,6 +33,7 @@
 		BF65FE451F2C088300DA110B /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE441F2C088300DA110B /* Playground.swift */; };
 		BF69B2921F2C0FCB0064D7B2 /* DataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */; };
 		BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD582B11F2B6F0600E39038 /* MapItem.swift */; };
+		BFE3B46C1F2CFE17002A4B14 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE3B46B1F2CFE17002A4B14 /* LocationViewController.swift */; };
 		BFEA6C591F2C4274009A995F /* DirectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEA6C581F2C4274009A995F /* DirectionHelper.swift */; };
 		FA89C52E1F2BFB680097A6F1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA89C52C1F2BFB680097A6F1 /* Interface.storyboard */; };
 		FA89C5301F2BFB680097A6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA89C52F1F2BFB680097A6F1 /* Assets.xcassets */; };
@@ -129,6 +130,7 @@
 		BF65FE441F2C088300DA110B /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetter.swift; sourceTree = "<group>"; };
 		BFD582B11F2B6F0600E39038 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
+		BFE3B46B1F2CFE17002A4B14 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		BFEA6C581F2C4274009A995F /* DirectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionHelper.swift; sourceTree = "<group>"; };
 		C772AF4F8EBA7D0A52C15C1F /* Pods-WalkaboutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8A08556A60FD43BAD7EF18 /* Pods_WalkaboutWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkaboutWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +242,7 @@
 				BFEA6C581F2C4274009A995F /* DirectionHelper.swift */,
 				BF517A051F2C4E9A003889A1 /* SetupViewController.swift */,
 				03AD245A1F2CEE320020BEA8 /* WhereToViewController.swift */,
+				BFE3B46B1F2CFE17002A4B14 /* LocationViewController.swift */,
 			);
 			path = Walkabout;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				03AD245B1F2CEE320020BEA8 /* WhereToViewController.swift in Sources */,
 				BFEA6C591F2C4274009A995F /* DirectionHelper.swift in Sources */,
 				BF65FE371F2C01CE00DA110B /* DrinkningFountain.swift in Sources */,
+				BFE3B46C1F2CFE17002A4B14 /* LocationViewController.swift in Sources */,
 				BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */,
 				BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */,
 			);

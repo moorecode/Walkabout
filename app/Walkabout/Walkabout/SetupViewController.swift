@@ -12,10 +12,14 @@ import SwiftyButton
 import ChameleonFramework
 import MapboxDirections
 import Mapbox
+import Presentr
+
 
 class SetupViewController: UIViewController {
     
     var completionHandler : ((_ child:SetupViewController) -> Void)?
+    
+    let presenter = Presentr(presentationType: .topHalf)
     
     func dismiss() {
         self.dismiss(animated: false) {
@@ -31,7 +35,13 @@ class SetupViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .clear
         
+        presenter.dismissOnSwipe = true
+        presenter.blurStyle = .extraLight
+        presenter.blurBackground = true
+        
         let hello = UILabel()
+        hello.minimumScaleFactor = 0.4
+        hello.adjustsFontSizeToFitWidth = true
         let hour = Calendar.current.dateComponents([.hour], from: Date())
         
         if hour.hour! < 8 {
@@ -58,7 +68,7 @@ class SetupViewController: UIViewController {
         
         hello.font = UIFont(name: "Archive", size: 30)
         hello.textAlignment = .center
-        hello.textColor = UIColor.flatGray()
+        hello.textColor = UIColor.flatGrayColorDark()
         view.addSubview(hello)
         hello.snp.makeConstraints { (make) in
             make.top.equalTo(view.snp.topMargin).offset(8)
@@ -102,6 +112,10 @@ class SetupViewController: UIViewController {
         
         let images = [dogImage, playgroundImage, artImage, benchImage, fountainImage, toiletImage, fitnessImage, barbequeImage]
         
+        for image in images {
+            image.contentMode = .scaleAspectFit
+        }
+        
         let buttons = [dogButton, playgroundButton, artButton, benchButton, fountainButton, toiletButton, fitnessButton, barbequeButton]
         
         for button in buttons {
@@ -137,21 +151,20 @@ class SetupViewController: UIViewController {
         startButton.snp.makeConstraints { (make) in
             make.height.equalTo(40)
             make.bottom.equalTo(view.snp.bottomMargin).offset(-8)
-            make.right.equalTo(locationButton.snp.left)
-            make.left.equalTo(view.snp.leftMargin)
+            make.right.equalTo(view.snp.rightMargin)
+            make.left.equalTo(locationButton.snp.right).offset(8)
         }
         
         
         locationButton.setImage(#imageLiteral(resourceName: "location"), for: .normal)
-        locationButton.imageEdgeInsets = UIEdgeInsetsMake(35,35,35,35)
-        locationButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
+        locationButton.imageEdgeInsets = UIEdgeInsetsMake(30,30,30,30)
         locationButton.colors = .init(button: UIColor.flatRed(), shadow: UIColor.flatRedColorDark())
         locationButton.addTarget(self, action: #selector(location), for: .touchUpInside)
         locationButton.snp.makeConstraints { (make) in
             make.height.equalTo(40)
             make.bottom.equalTo(view.snp.bottomMargin).offset(-8)
-            make.right.equalTo(view.snp.rightMargin)
-            make.left.equalTo(startButton.snp.right).offset
+            make.right.equalTo(startButton.snp.left)
+            make.left.equalTo(view.snp.left).offset(6)
             make.width.equalTo(locationButton.snp.height)
         }
         
@@ -166,7 +179,7 @@ class SetupViewController: UIViewController {
             make.bottom.equalTo(startButton.snp.top).offset(-8)
             make.right.equalTo(stackView.snp.left)
             make.left.equalTo(view.snp.left).offset(6)
-            make.width.equalTo(stackView.snp.height).dividedBy(8)
+            make.width.equalTo(40)
         }
     }
     
@@ -180,7 +193,8 @@ class SetupViewController: UIViewController {
     }
     
     @objc func location() {
-        
+        let locationView = LocationViewController()
+        customPresentViewController(presenter, viewController: locationView, animated: true, completion: nil)
     }
     
     @objc func toggle(sender: FlatButton) {

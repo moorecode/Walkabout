@@ -9,6 +9,7 @@ PODS:
   - MapboxGeocoder.swift (0.6.2)
   - MapboxStatic.swift (0.9.1)
   - Polyline (4.1.1)
+  - Presentr (1.2.3)
   - Realm (2.9.0):
     - Realm/Headers (= 2.9.0)
   - Realm/Headers (2.9.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - MapboxDirections.swift (~> 0.10)
   - MapboxGeocoder.swift (~> 0.6)
   - MapboxStatic.swift (~> 0.9)
+  - Presentr
   - RealmSwift
   - SnapKit
   - SwiftyButton
@@ -38,12 +40,13 @@ SPEC CHECKSUMS:
   MapboxGeocoder.swift: ec63783e8752b9d2435aeee33fe4640da8f9c2c6
   MapboxStatic.swift: 247d98dd6e11b8934aa5d122efcb50384f8d66f6
   Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  Presentr: a21c7bbb3532c8ff60320e235c0a4869e72f8885
   Realm: f14ab1673502559cb16592ddb8f383c474c13e05
   RealmSwift: 16ad2c187042c4934f49750375582fe508627dcb
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9e450f4a6a5f8419f27f8cbe7c00f4d6c478a9e9
+PODFILE CHECKSUM: f351a0835969822e5bc1bcc9cc2691768b7f7988
 
 COCOAPODS: 1.2.1

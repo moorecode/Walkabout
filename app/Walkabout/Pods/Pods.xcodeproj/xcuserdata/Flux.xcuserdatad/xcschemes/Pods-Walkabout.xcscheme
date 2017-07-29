@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8FE1BF0DF3B57EE732F3DAC98F848B0F"
+               BlueprintIdentifier = "E622003421F6B73F9118B773B0EB6BF2"
                BuildableName = "Pods_Walkabout.framework"
                BlueprintName = "Pods-Walkabout"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8FE1BF0DF3B57EE732F3DAC98F848B0F"
+            BlueprintIdentifier = "E622003421F6B73F9118B773B0EB6BF2"
             BuildableName = "Pods_Walkabout.framework"
             BlueprintName = "Pods-Walkabout"
             ReferencedContainer = "container:Pods.xcodeproj">

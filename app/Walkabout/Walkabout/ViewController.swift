@@ -26,6 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var url = URL(string: "")
     
     var pointRegister: [String: AnyClass] = [:]
+    let LocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         
@@ -223,6 +224,10 @@ extension ViewController: MGLMapViewDelegate {
             }
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
     }
     
 }

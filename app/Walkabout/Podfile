@@ -11,6 +11,7 @@ def walkabout
     pod 'MapboxGeocoder.swift', '~> 0.6'
     pod 'ChameleonFramework'
     pod 'SwiftyButton'
+    pod 'Presentr'
     
 end
 
