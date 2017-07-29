@@ -35,8 +35,38 @@ class ViewController: UIViewController {
         let url = URL(string: "mapbox://styles/mapbox/outdoors-v10")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.logoView.isHidden = true
+        mapView.attributionButton.isHidden = true
         view.addSubview(mapView)
         
+        // Bottom SubView for initiation of Walkabout
+        let bottomOverlay = UIView()
+        bottomOverlay.frame = view.bounds
+        bottomOverlay.backgroundColor = UIColor.clear
+        view.addSubview(bottomOverlay)
+        
+        // Set the constraints of the bottom overlay
+        bottomOverlay.snp.makeConstraints { (make) -> Void in
+            
+            make.centerX.equalTo(view.snp.centerX)
+            make.bottom.equalTo(view.snp.bottom).offset(-15)
+            make.left.equalTo(view.snp.left).offset(15)
+            make.right.equalTo(view.snp.right).offset(-15)
+            make.height.equalTo(view.snp.height).multipliedBy(0.15)
+        }
+        
+        // Force the bottom overlay to be at the front at all times
+        bottomOverlay.layer.zPosition = CGFloat.greatestFiniteMagnitude
+        bottomOverlay.layer.cornerRadius = 5
+        bottomOverlay.layer.masksToBounds = true;
+        
+        // Create a blur effect subview that represents
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEfffectView = UIVisualEffectView(effect:blurEffect)
+        blurEfffectView.frame = bottomOverlay.bounds
+        blurEfffectView.layer.cornerRadius = 5
+        blurEfffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        bottomOverlay.addSubview(blurEfffectView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
