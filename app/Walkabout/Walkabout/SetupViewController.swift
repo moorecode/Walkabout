@@ -8,21 +8,49 @@
 
 import UIKit
 import SnapKit
+import SwiftyButton
+import ChameleonFramework
 
 class SetupViewController: UIViewController {
     
-    let closeButton = UIButton(type: .plain)
+    let closeButton = PressableButton()
+    let startButton = PressableButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .clear
         // Do any additional setup after loading the view.
+        
+        // Add the close button
         view.addSubview(closeButton)
-        closeButton.setTitle("close", for: .normal)
+        closeButton.setTitle("Back", for: .normal)
+        closeButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
+        closeButton.colors = .init(button: UIColor.flatWatermelon(), shadow: UIColor.flatWatermelonColorDark())
+        closeButton.shadowHeight = 10
+        closeButton.cornerRadius = 8
+        closeButton.depth = 3
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         closeButton.snp.makeConstraints { (make) in
-            make.top.equalTo(view.snp.topMargin)
+            make.height.equalTo(40)
+            make.bottom.equalTo(view.snp.bottomMargin)
             make.left.equalTo(view.snp.leftMargin)
+            make.width.equalTo(view.snp.width).dividedBy(4)
+        }
+        
+        // Add the start button
+        view.addSubview(startButton)
+        startButton.setTitle("Start", for: .normal)
+        startButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
+        startButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
+        startButton.shadowHeight = 10
+        startButton.cornerRadius = 8
+        startButton.depth = 3
+        startButton.addTarget(self, action: #selector(close), for: .touchUpInside)
+        startButton.snp.makeConstraints { (make) in
+            make.height.equalTo(40)
+            make.bottom.equalTo(view.snp.bottomMargin)
+            make.right.equalTo(view.snp.rightMargin)
+            make.left.equalTo(closeButton.snp.rightMargin).offset(16)
         }
     }
     
