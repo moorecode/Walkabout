@@ -10,8 +10,18 @@ import UIKit
 import SnapKit
 import SwiftyButton
 import ChameleonFramework
+import MapboxDirections
+import Mapbox
 
 class SetupViewController: UIViewController {
+    
+    var completionHandler : ((_ child:SetupViewController) -> Void)?
+    
+    func dismiss() {
+        self.dismiss(animated: true) {
+            self.completionHandler?(self)
+        }
+    }
     
     let closeButton = PressableButton()
     let startButton = PressableButton()
@@ -96,7 +106,7 @@ class SetupViewController: UIViewController {
         startButton.setTitle("Start", for: .normal)
         startButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
         startButton.colors = .init(button: UIColor.flatOrange(), shadow: UIColor.flatOrangeColorDark())
-        startButton.addTarget(self, action: #selector(close), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(begin), for: .touchUpInside)
         startButton.snp.makeConstraints { (make) in
             make.height.equalTo(40)
             make.bottom.equalTo(view.snp.bottomMargin).offset(-8)
@@ -114,6 +124,11 @@ class SetupViewController: UIViewController {
     
     @objc func close() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func begin() {
+        self.dismiss()
+        
     }
     
     @objc func toggle(sender: FlatButton) {
