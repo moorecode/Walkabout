@@ -15,6 +15,17 @@
 		BF54CEC21F2B4A630002681C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC11F2B4A630002681C /* Assets.xcassets */; };
 		BF54CEC51F2B4A630002681C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */; };
 		BF54CED01F2B4A640002681C /* WalkaboutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CECF1F2B4A640002681C /* WalkaboutTests.swift */; };
+		BF65FE331F2BFC9300DA110B /* ArtFacility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE321F2BFC9300DA110B /* ArtFacility.swift */; };
+		BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE341F2BFFBB00DA110B /* ArtItem.swift */; };
+		BF65FE371F2C01CE00DA110B /* DinkningFountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE361F2C01CE00DA110B /* DinkningFountain.swift */; };
+		BF65FE391F2C020C00DA110B /* DogPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE381F2C020C00DA110B /* DogPark.swift */; };
+		BF65FE3B1F2C02CD00DA110B /* Beach.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE3A1F2C02CD00DA110B /* Beach.swift */; };
+		BF65FE3D1F2C039200DA110B /* FitnessSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE3C1F2C039200DA110B /* FitnessSite.swift */; };
+		BF65FE3F1F2C04C200DA110B /* Barbeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE3E1F2C04C200DA110B /* Barbeque.swift */; };
+		BF65FE411F2C055A00DA110B /* Furniture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE401F2C055A00DA110B /* Furniture.swift */; };
+		BF65FE431F2C067B00DA110B /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE421F2C067B00DA110B /* Toilet.swift */; };
+		BF65FE451F2C088300DA110B /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE441F2C088300DA110B /* Playground.swift */; };
+		BF65FE471F2C08C400DA110B /* DataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE461F2C08C400DA110B /* DataGetter.swift */; };
 		BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD582B11F2B6F0600E39038 /* MapItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +54,17 @@
 		BF54CECB1F2B4A640002681C /* WalkaboutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalkaboutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF54CECF1F2B4A640002681C /* WalkaboutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkaboutTests.swift; sourceTree = "<group>"; };
 		BF54CED11F2B4A640002681C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF65FE321F2BFC9300DA110B /* ArtFacility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtFacility.swift; sourceTree = "<group>"; };
+		BF65FE341F2BFFBB00DA110B /* ArtItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtItem.swift; sourceTree = "<group>"; };
+		BF65FE361F2C01CE00DA110B /* DinkningFountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinkningFountain.swift; sourceTree = "<group>"; };
+		BF65FE381F2C020C00DA110B /* DogPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPark.swift; sourceTree = "<group>"; };
+		BF65FE3A1F2C02CD00DA110B /* Beach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beach.swift; sourceTree = "<group>"; };
+		BF65FE3C1F2C039200DA110B /* FitnessSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessSite.swift; sourceTree = "<group>"; };
+		BF65FE3E1F2C04C200DA110B /* Barbeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barbeque.swift; sourceTree = "<group>"; };
+		BF65FE401F2C055A00DA110B /* Furniture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furniture.swift; sourceTree = "<group>"; };
+		BF65FE421F2C067B00DA110B /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
+		BF65FE441F2C088300DA110B /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		BF65FE461F2C08C400DA110B /* DataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetter.swift; sourceTree = "<group>"; };
 		BFD582B11F2B6F0600E39038 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
 		C772AF4F8EBA7D0A52C15C1F /* Pods-WalkaboutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkabout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +122,7 @@
 		BF54CEB91F2B4A630002681C /* Walkabout */ = {
 			isa = PBXGroup;
 			children = (
+				BF65FE311F2BFC2300DA110B /* Data */,
 				BF54CEBA1F2B4A630002681C /* AppDelegate.swift */,
 				BF54CEBC1F2B4A630002681C /* ViewController.swift */,
 				BF54CEBE1F2B4A630002681C /* Main.storyboard */,
@@ -118,6 +141,24 @@
 				BF54CED11F2B4A640002681C /* Info.plist */,
 			);
 			path = WalkaboutTests;
+			sourceTree = "<group>";
+		};
+		BF65FE311F2BFC2300DA110B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BF65FE321F2BFC9300DA110B /* ArtFacility.swift */,
+				BF65FE341F2BFFBB00DA110B /* ArtItem.swift */,
+				BF65FE361F2C01CE00DA110B /* DinkningFountain.swift */,
+				BF65FE381F2C020C00DA110B /* DogPark.swift */,
+				BF65FE3A1F2C02CD00DA110B /* Beach.swift */,
+				BF65FE3C1F2C039200DA110B /* FitnessSite.swift */,
+				BF65FE3E1F2C04C200DA110B /* Barbeque.swift */,
+				BF65FE401F2C055A00DA110B /* Furniture.swift */,
+				BF65FE421F2C067B00DA110B /* Toilet.swift */,
+				BF65FE441F2C088300DA110B /* Playground.swift */,
+				BF65FE461F2C08C400DA110B /* DataGetter.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		FA868B176226FDDC4F55439A /* Pods */ = {
@@ -187,9 +228,11 @@
 				TargetAttributes = {
 					BF54CEB61F2B4A630002681C = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 					BF54CECA1F2B4A640002681C = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						TestTargetID = BF54CEB61F2B4A630002681C;
 					};
 				};
@@ -331,8 +374,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF65FE3D1F2C039200DA110B /* FitnessSite.swift in Sources */,
+				BF65FE331F2BFC9300DA110B /* ArtFacility.swift in Sources */,
+				BF65FE3B1F2C02CD00DA110B /* Beach.swift in Sources */,
+				BF65FE391F2C020C00DA110B /* DogPark.swift in Sources */,
 				BF54CEBD1F2B4A630002681C /* ViewController.swift in Sources */,
 				BF54CEBB1F2B4A630002681C /* AppDelegate.swift in Sources */,
+				BF65FE451F2C088300DA110B /* Playground.swift in Sources */,
+				BF65FE3F1F2C04C200DA110B /* Barbeque.swift in Sources */,
+				BF65FE411F2C055A00DA110B /* Furniture.swift in Sources */,
+				BF65FE431F2C067B00DA110B /* Toilet.swift in Sources */,
+				BF65FE471F2C08C400DA110B /* DataGetter.swift in Sources */,
+				BF65FE371F2C01CE00DA110B /* DinkningFountain.swift in Sources */,
+				BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */,
 				BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +542,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -503,6 +558,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -519,6 +575,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.WalkaboutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Walkabout.app/Walkabout";
@@ -536,6 +593,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.WalkaboutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Walkabout.app/Walkabout";
