@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13034"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Courier.ttc">
+            <string>Courier-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WalkaboutWatch" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="161" alignment="left" id="aIk-6j-5Nv"/>
+                        <separator alignment="left" id="2gK-VN-x7s"/>
+                        <button width="1" alignment="left" title="More Info" id="dSk-R0-UBf">
+                            <connections>
+                                <segue destination="JDK-pt-ihG" kind="push" id="fkB-bk-SaN"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="341.5"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Point of Interest" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WalkaboutWatch" customModuleProvider="target">
+                    <items>
+                        <imageView height="122" alignment="left" id="qSK-wq-uQA"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="otl-U6-zZv">
+            <objects>
+                <controller id="JDK-pt-ihG">
+                    <items>
+                        <label width="134" height="37" alignment="left" text="Distance:" id="c3Z-zm-Jsj"/>
+                        <separator alignment="left" id="Alj-LI-qsB"/>
+                        <label width="135" height="20" alignment="left" text="Time Elapsed" textAlignment="center" id="Ekb-ED-bUQ"/>
+                        <timer width="134" height="38" alignment="left" textAlignment="center" id="QFG-YJ-3kF">
+                            <fontDescription key="font" name="Courier-Bold" family="Courier" pointSize="23"/>
+                        </timer>
+                        <button width="1" alignment="left" title="Pause" id="ZkR-rE-aFN"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="313"/>
+        </scene>
+    </scenes>
+</document>

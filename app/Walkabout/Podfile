@@ -1,21 +1,34 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+def walkabout
+    pod 'Mapbox-iOS-SDK', '~> 3.6'
+    pod 'SwiftyJSON'
+    pod 'SnapKit'
+    pod 'Alamofire'
+    pod 'RealmSwift'
+    pod 'MapboxDirections.swift', '~> 0.10'
+    pod 'MapboxGeocoder.swift', '~> 0.6'
+end
+
 target 'Walkabout' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
-  # Pods for Walkabout
-  pod 'Mapbox-iOS-SDK', '~> 3.6'
-  pod 'SwiftyJSON'
-  pod 'SnapKit'
-  pod 'Alamofire'
-  pod 'RealmSwift'
   
-
+  walkabout
+  # Pods for Walkabout
+  
+  
   target 'WalkaboutTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
 end
+
+target 'WalkaboutWatch Extension' do
+    use_frameworks!
+    platform :watchos, '3.0'
+    pod 'MapboxStatic.swift', '~> 0.9'
+end
+
