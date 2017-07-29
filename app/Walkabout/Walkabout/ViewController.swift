@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         }else {
             url = URL(string: "mapbox://styles/jbwhitcombe/cj5okh01801t42sr1d31s324l")
         }
-            
+        
         // Do any additional setup after loading the view, typically from a nib.
         mapView = MGLMapView(frame: view.bounds, styleURL: url)
         guard let map = mapView else {fatalError("Map could no be initialzed")}
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         let point1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478))
         let point2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.279, longitude: 149.05))
         let waypoints = [point1, point2]
-        helper.GenerateAndDisplay(waypoints:waypoints, mapView:self.mapView)
+        helper.GenerateAndDisplay(waypoints:waypoints, mapView:self.mapView!)
     }
     
     func screenBrightnessDidChange(_ notification: Notification) {
