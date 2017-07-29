@@ -17,6 +17,8 @@ import SwiftyButton
 
 class ViewController: UIViewController {
     
+    let walkaboutButton = PressableButton()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,9 +37,11 @@ class ViewController: UIViewController {
         let center = CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478)
         mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
-        let walkaboutButton = PressableButton()
         walkaboutButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
+        walkaboutButton.depth = 3.0
         walkaboutButton.setTitle("Walkabout", for: .normal)
+        
+        walkaboutButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
         view.addSubview(walkaboutButton)
         
         walkaboutButton.snp.makeConstraints { (make) -> Void in
@@ -55,6 +59,11 @@ class ViewController: UIViewController {
         
         let setupView = SetupViewController()
         setupView.preferredContentSize = CGSize(width: 300, height: 300)
+        setupView.modalPresentationStyle = .popover
+        setupView.popoverPresentationController?.permittedArrowDirections = .down
+        setupView.popoverPresentationController?.delegate = self
+        setupView.popoverPresentationController?.sourceView = walkaboutButton
+        setupView.popoverPresentationController?.sourceRect = walkaboutButton.bounds
         self.present(setupView, animated: true, completion: nil)
     }
     
@@ -87,6 +96,13 @@ extension ViewController: MGLMapViewDelegate {
         mapView.setCamera(camera, withDuration: 120, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
     }
     
+}
+
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // return UIModalPresentationStyle.FullScreen
+        return UIModalPresentationStyle.none
+    }
 }
 
 
