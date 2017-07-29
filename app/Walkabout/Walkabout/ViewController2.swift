@@ -21,11 +21,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        super.viewDidLoad()
-    
+        var url = URL(string: "")
         
-        // Do any additional setup after loading the view, typically from a nib.
-        let url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
+        if UIScreen.main.brightness > 0.5 {
+            url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
+        }
+        
+        else {
+            url = URL(string: "mapbox://styles/jbwhitcombe/cj5okh01801t42sr1d31s324l")
+        }
+
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.delegate = self
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
