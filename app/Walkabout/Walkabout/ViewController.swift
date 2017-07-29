@@ -18,6 +18,8 @@ import SwiftyButton
 class ViewController: UIViewController {
     
     let walkaboutButton = PressableButton()
+    let mapView = MGLMapView(frame: CGRect.zero, styleURL: URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy"))
+    
     
     override func viewDidLoad() {
         
@@ -43,7 +45,6 @@ class ViewController: UIViewController {
         mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
         walkaboutButton.colors = .init(button: UIColor.flatGreen(), shadow: UIColor.flatGreenColorDark())
-            
         walkaboutButton.setTitle("Walkabout", for: .normal)
         
         walkaboutButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
@@ -60,10 +61,32 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let realm = try! Realm()
+//        let artFacilities = realm.objects(ArtFacility.self)
+//        let artItems = realm.objects(ArtItem.self)
+//        let drinkingFountains = realm.objects(DrinkingFountain.self)
+//        let dogParks = realm.objects(DogPark.self)
+//        let finessSites = realm.objects(FitnessSites.self)
+//        let bbqs = realm.objects(Barbeque.self)
+        let furniture = realm.objects(Furniture.self)
+//        let toilets = realm.objects(Toilet.self)
+//        
+        for f in furniture {
+            let annotation = MGLPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
+            annotation.title = "Public Furniture"
+            annotation.subtitle = f.type
+            mapView.addAnnotation(annotation)
+        }
+        
+        
+    }
+    
     @objc func walkaboutButtonTapped(sender:UIButton!) {
         
         let setupView = SetupViewController()
-        setupView.preferredContentSize = CGSize(width: 350, height: 500)
+        setupView.preferredContentSize = CGSize(width: 300, height: 400)
         setupView.modalPresentationStyle = .popover
         setupView.popoverPresentationController?.permittedArrowDirections = .down
         setupView.popoverPresentationController?.delegate = self
@@ -99,6 +122,10 @@ extension ViewController: MGLMapViewDelegate {
         
         // Animate the camera movement over 5 seconds.
         mapView.setCamera(camera, withDuration: 120, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+    }
+    
+    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+        return MGLAnnotationImage(image: #imageLiteral(resourceName: "bench"), reuseIdentifier: "Furniture")
     }
     
 }
