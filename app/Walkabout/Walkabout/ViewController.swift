@@ -198,7 +198,7 @@ extension ViewController: MGLMapViewDelegate {
         
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
-            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier, type: DogPark.self)
             annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
             annotationView!.backgroundColor = .clear
             }
@@ -219,11 +219,14 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 class CustomAnnotationView: MGLAnnotationView {
     
     let imageView = UIImageView()
-    override init(reuseIdentifier: String?) {
+    init(reuseIdentifier: String?, type: AnyClass) {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(imageView)
-        imageView.frame = bounds
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = image(forClass: type)
+        imageView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -233,8 +236,33 @@ class CustomAnnotationView: MGLAnnotationView {
     override func layoutSubviews() {
         super.layoutSubviews()
         scalesWithViewingDistance = true
-        imageView.image = #imageLiteral(resourceName: "bench")
-
+        imageView.setNeedsDisplay()
+    }
+    
+    func image(forClass type: AnyClass) -> UIImage {
+        switch String(describing: type.self) {
+            case String(describing: ArtFacility.self):
+                return #imageLiteral(resourceName: "art")
+        case String(describing: ArtItem.self):
+            return #imageLiteral(resourceName: "art")
+        case String(describing: DrinkingFountain.self):
+            return #imageLiteral(resourceName: "water")
+        case String(describing: DogPark.self):
+            return #imageLiteral(resourceName: "dog")
+        case String(describing: FitnessSite.self):
+            return #imageLiteral(resourceName: "fitness")
+        case String(describing: Barbeque.self):
+            return #imageLiteral(resourceName: "barbeque")
+        case String(describing: Furniture.self):
+            return #imageLiteral(resourceName: "bench")
+        case String(describing: Toilet.self):
+            return #imageLiteral(resourceName: "toilet")
+        case String(describing: Playground.self):
+            return #imageLiteral(resourceName: "playground")
+        default:
+            fatalError("No image for class: \(String(describing: type.self))")
+        }
+        return UIImage()
     }
 }
 
