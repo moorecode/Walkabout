@@ -35,7 +35,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoibW9vcmVjb2RlIiwiYSI6ImNqNW5xdnMzNzMyMW0zM21ubzRldzkxaXUifQ.RoCqBS15rXIII8u02El8uw</string>
+	<string>pk.eyJ1IjoiamJ3aGl0Y29tYmUiLCJhIjoiY2o1b2s2N3RhMDB6NjMzcHFwZTJmbDJsdCJ9.KgiXUqT9bHXVulRlN7Ch6Q</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Shows your location on the map help us generate routes for you.</string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
