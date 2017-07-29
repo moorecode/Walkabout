@@ -10,6 +10,7 @@
 		03AA6C111F2C5C1000E489F5 /* Archive.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03AA6C101F2C5BFC00E489F5 /* Archive.otf */; };
 		03AA6C131F2C5C1100E489F5 /* Archive.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03AA6C101F2C5BFC00E489F5 /* Archive.otf */; };
 		03AA6C141F2C5C1100E489F5 /* Archive.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03AA6C101F2C5BFC00E489F5 /* Archive.otf */; };
+		03AD245B1F2CEE320020BEA8 /* WhereToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD245A1F2CEE320020BEA8 /* WhereToViewController.swift */; };
 		177857736266D2BA38C6C27D /* Pods_WalkaboutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68078642CDA0DFB001CEC147 /* Pods_WalkaboutTests.framework */; };
 		A5CEB3DE7B0583DA69DAFE85 /* Pods_WalkaboutWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A08556A60FD43BAD7EF18 /* Pods_WalkaboutWatch_Extension.framework */; };
 		B2CE477CE5F28541FA42E8BD /* Pods_Walkabout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */; };
@@ -94,6 +95,7 @@
 
 /* Begin PBXFileReference section */
 		03AA6C101F2C5BFC00E489F5 /* Archive.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Archive.otf; sourceTree = "<group>"; };
+		03AD245A1F2CEE320020BEA8 /* WhereToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereToViewController.swift; sourceTree = "<group>"; };
 		075A0117DBEC20D093313C94 /* Pods-WalkaboutWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutWatch Extension/Pods-WalkaboutWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		0BDA9A3F8AD758573EAFD490 /* Pods_Walkabout_WalkaboutWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkabout_WalkaboutWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A50A44C8DE4D2693C3A4C94 /* Pods-Walkabout-WalkaboutWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkabout-WalkaboutWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Walkabout-WalkaboutWatch/Pods-Walkabout-WalkaboutWatch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				BFD582B11F2B6F0600E39038 /* MapItem.swift */,
 				BFEA6C581F2C4274009A995F /* DirectionHelper.swift */,
 				BF517A051F2C4E9A003889A1 /* SetupViewController.swift */,
+				03AD245A1F2CEE320020BEA8 /* WhereToViewController.swift */,
 			);
 			path = Walkabout;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				BF65FE411F2C055A00DA110B /* Furniture.swift in Sources */,
 				BF65FE431F2C067B00DA110B /* Toilet.swift in Sources */,
 				BF69B2921F2C0FCB0064D7B2 /* DataGetter.swift in Sources */,
+				03AD245B1F2CEE320020BEA8 /* WhereToViewController.swift in Sources */,
 				BFEA6C591F2C4274009A995F /* DirectionHelper.swift in Sources */,
 				BF65FE371F2C01CE00DA110B /* DrinkningFountain.swift in Sources */,
 				BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */,

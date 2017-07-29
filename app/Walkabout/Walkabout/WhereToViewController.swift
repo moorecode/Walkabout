@@ -2,7 +2,7 @@
 //  SetupViewController.swift
 //  Walkabout
 //
-//  Created by Sam Moore on 29/7/17.
+//  Created by Joshua Whitcombe on 29/7/17.
 //  Copyright © 2017 GovHack. All rights reserved.
 //
 
@@ -13,12 +13,12 @@ import ChameleonFramework
 import MapboxDirections
 import Mapbox
 
-class SetupViewController: UIViewController {
+class WhereToViewController: UIViewController {
     
-    var completionHandler : ((_ child:SetupViewController) -> Void)?
+    var completionHandler : ((_ child:WhereToViewController) -> Void)?
     
     func dismiss() {
-        self.dismiss(animated: false) {
+        self.dismiss(animated: true) {
             self.completionHandler?(self)
         }
     }
@@ -127,34 +127,6 @@ class SetupViewController: UIViewController {
         view.addSubview(stackView2)
         
         
-        // Add the start button
-        view.addSubview(startButton)
-        view.addSubview(locationButton)
-        startButton.setTitle("Start", for: .normal)
-        startButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
-        startButton.colors = .init(button: UIColor.flatOrange(), shadow: UIColor.flatOrangeColorDark())
-        startButton.addTarget(self, action: #selector(begin), for: .touchUpInside)
-        startButton.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
-            make.bottom.equalTo(view.snp.bottomMargin).offset(-8)
-            make.right.equalTo(locationButton.snp.left)
-            make.left.equalTo(view.snp.leftMargin)
-        }
-        
-        
-        locationButton.setImage(#imageLiteral(resourceName: "location"), for: .normal)
-        locationButton.imageEdgeInsets = UIEdgeInsetsMake(35,35,35,35)
-        locationButton.titleLabel?.font = UIFont(name: "Archive", size: 26)
-        locationButton.colors = .init(button: UIColor.flatRed(), shadow: UIColor.flatRedColorDark())
-        locationButton.addTarget(self, action: #selector(location), for: .touchUpInside)
-        locationButton.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
-            make.bottom.equalTo(view.snp.bottomMargin).offset(-8)
-            make.right.equalTo(view.snp.rightMargin)
-            make.left.equalTo(startButton.snp.right).offset
-            make.width.equalTo(locationButton.snp.height)
-        }
-        
         stackView.snp.makeConstraints { (make) in
             make.top.equalTo(hello.snp.bottom).offset(8)
             make.bottom.equalTo(startButton.snp.top).offset(-8)
@@ -180,6 +152,7 @@ class SetupViewController: UIViewController {
     }
     
     @objc func location() {
+        // OPEN OTHER VIEW
         
     }
     
@@ -193,21 +166,22 @@ class SetupViewController: UIViewController {
             sender.color = UIColor.flatGray()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+
