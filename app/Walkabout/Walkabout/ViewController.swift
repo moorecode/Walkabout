@@ -74,30 +74,69 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
         let realm = try! Realm()
+        let artFacilities = realm.objects(ArtFacility.self)
+        let artItems = realm.objects(ArtItem.self)
+        let drinkingFountains = realm.objects(DrinkingFountain.self)
+        let dogParks = realm.objects(DogPark.self)
+        let fitnessSites = realm.objects(FitnessSite.self)
+        let bbqs = realm.objects(Barbeque.self)
+        let furniture = realm.objects(Furniture.self)
         let toilets = realm.objects(Toilet.self)
         var pointAnnotations = [MGLPointAnnotation]()
-        for t in toilets {
-            let point = MGLPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(t.lat), longitude: CLLocationDegrees(t.lon))
-            point.title = "toilet"
-            pointAnnotations.append(point)
-            pointRegister[String(CLLocationDegrees(t.lat)) + String(CLLocationDegrees(t.lon))] = Toilet.self
-        }
-        let artItems = realm.objects(ArtItem.self)
+       
         for ai in artItems {
             let point = MGLPointAnnotation()
             point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(ai.lat), longitude: CLLocationDegrees(ai.lon))
-            point.title = "art"
+            point.title = "Artwork"
+            point.subtitle = ai.name
             pointAnnotations.append(point)
             pointRegister[String(CLLocationDegrees(ai.lat)) + String(CLLocationDegrees(ai.lon))] = ArtItem.self
         }
-        let bbqs = realm.objects(Barbeque.self)
+        for d in drinkingFountains {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(d.lat), longitude: CLLocationDegrees(d.lon))
+            point.title = "Drinking Fountain"
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(d.lat)) + String(CLLocationDegrees(d.lon))] = DrinkingFountain.self
+        }
+        for d in dogParks {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(d.lat), longitude: CLLocationDegrees(d.lon))
+            point.title = "Dog Park"
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(d.lat)) + String(CLLocationDegrees(d.lon))] = DogPark.self
+        }
+        for f in fitnessSites {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
+            point.title = "Fitness Equipment"
+            point.subtitle = f.type
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(f.lat)) + String(CLLocationDegrees(f.lon))] = ArtItem.self
+        }
+        for f in furniture {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
+            point.title = "Public Furniture"
+            point.subtitle = f.type
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(f.lat)) + String(CLLocationDegrees(f.lon))] = ArtItem.self
+        }
         for b in bbqs {
             let point = MGLPointAnnotation()
             point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(b.lat), longitude: CLLocationDegrees(b.lon))
-            point.title = "bbq"
+            point.title = "Barbeque"
+            point.subtitle = b.type
             pointAnnotations.append(point)
             pointRegister[String(CLLocationDegrees(b.lat)) + String(CLLocationDegrees(b.lon))] = Barbeque.self
+        }
+        for t in toilets {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(t.lat), longitude: CLLocationDegrees(t.lon))
+            point.title = "Toilet"
+            point.subtitle = t.type
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(t.lat)) + String(CLLocationDegrees(t.lon))] = Toilet.self
         }
 
 
@@ -211,7 +250,7 @@ extension ViewController: MGLMapViewDelegate {
         }
         
         // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
-        let reuseIdentifier = "Furniture"
+        let reuseIdentifier = String(describing:pointRegister[String(annotation.coordinate.latitude) + String(annotation.coordinate.longitude)]!)
         
         // For better performance, always try to reuse existing annotations.
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
@@ -229,7 +268,6 @@ extension ViewController: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
-    
 }
 
 extension ViewController: UIPopoverPresentationControllerDelegate {
