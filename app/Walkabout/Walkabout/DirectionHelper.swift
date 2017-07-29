@@ -56,8 +56,9 @@ class DirectionsHelpers {
                 
             }
         }
+        
+    }
     
 }
 
-}
 

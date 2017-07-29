@@ -12,7 +12,7 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 import RealmSwift
-import MapboxDirections
+
 
 enum DataSet: String {
     case ACTArtsFacilitiesList = "https://www.data.act.gov.au/resource/n2d8-bhdk.json"
@@ -27,17 +27,20 @@ enum DataSet: String {
 }
 
 class ViewController: UIViewController {
-
+    
+    let bottomOverlay = UIView()
+    let setupOverlay = UIView()
+    let config = UITextField()
+    
     
     let dataSets:[DataSet] = [.ACTArtsFacilitiesList, .ACTPublicArtList, .DrinkingFountains, .FencedDogParks, .FitnessSites, .PublicBarbequesintheACT, .PublicFurnitureintheACT, .PublicToiletsintheACT, .TownAndDistrictPlaygrounds]
-
+    
     override func viewDidLoad() {
-        
         
         super.viewDidLoad()
         
-        let getter = DataGetter()
-        getter.getData()
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // Do any additional setup after loading the view, typically from a nib.
         let url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
@@ -48,14 +51,13 @@ class ViewController: UIViewController {
         mapView.attributionButton.isHidden = true
         mapView.compassView.isHidden = true
         view.addSubview(mapView)
-
+        
         let center = CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478)
         mapView.setCenter(center, zoomLevel: 7, direction: 0, animated: false)
         
         // Bottom SubView for initiation of Walkabout
-        let bottomOverlay = UIView()
         bottomOverlay.frame = view.bounds
-        bottomOverlay.backgroundColor = UIColor.gray
+        bottomOverlay.backgroundColor = UIColor.clear
         view.addSubview(bottomOverlay)
         
         // Set the constraints of the bottom overlay
@@ -74,12 +76,12 @@ class ViewController: UIViewController {
         bottomOverlay.layer.masksToBounds = true;
         
         // Create a blur effect subview that represents
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEfffectView = UIVisualEffectView(effect:blurEffect)
         blurEfffectView.frame = bottomOverlay.bounds
         blurEfffectView.layer.cornerRadius = 5
         blurEfffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //bottomOverlay.addSubview(blurEfffectView)
+        bottomOverlay.addSubview(blurEfffectView)
         
         let btn = UIButton(type: .custom) as UIButton
         btn.backgroundColor = .clear
@@ -97,19 +99,102 @@ class ViewController: UIViewController {
         }
         
         btn.addTarget(self, action: #selector(clickMe), for: .touchUpInside)
-        
+        btn.titleLabel?.font =  UIFont(name: "Blackthorns Demo", size: 30)
     }
-
+    
     @objc func clickMe(sender:UIButton!) {
-        print("Get cucked")
+        
+        UIView.animate(withDuration: 0.3) {
+            self.bottomOverlay.frame = CGRect(x: self.bottomOverlay.frame.minX, y: self.bottomOverlay.frame.minY, width: self.bottomOverlay.frame.width, height: self.bottomOverlay.frame.height)
+        }
+        self.bottomOverlay.isHidden = true
+        
+        setupOverlay.frame = view.bounds
+        setupOverlay.backgroundColor = UIColor.clear
+        view.addSubview(setupOverlay)
+        
+        setupOverlay.layer.zPosition = CGFloat.greatestFiniteMagnitude
+        setupOverlay.layer.cornerRadius = 5
+        setupOverlay.layer.masksToBounds = true
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEfffectView = UIVisualEffectView(effect:blurEffect)
+        blurEfffectView.frame = setupOverlay.bounds
+        blurEfffectView.layer.cornerRadius = 5
+        blurEfffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        setupOverlay.addSubview(blurEfffectView)
+        
+        setupOverlay.snp.makeConstraints { (make) -> Void in
+            
+            make.centerX.equalTo(view.snp.centerX)
+            make.bottom.equalTo(view.snp.bottom).offset(-15)
+            make.left.equalTo(view.snp.left).offset(15)
+            make.right.equalTo(view.snp.right).offset(-15)
+            make.height.equalTo(view.snp.height).multipliedBy(0.4)
+            
+        }
+        
+        config.backgroundColor = .clear
+        config.frame = setupOverlay.frame
+        setupOverlay.addSubview(config)
+        config.returnKeyType = UIReturnKeyType.done
+        
+        config.text = "Input an address"
+        
+        config.snp.makeConstraints { (make) -> Void in
+            
+            make.centerX.equalTo(setupOverlay.snp.centerX)
+            make.bottom.equalTo(setupOverlay.snp.bottom)
+            make.left.equalTo(setupOverlay.snp.left).offset(15)
+            make.right.equalTo(setupOverlay.snp.right).offset(15)
+            make.height.equalTo(setupOverlay.snp.height).dividedBy(4)
+            
+        }
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let url = "https://www.data.act.gov.au/resource/n2d8-bhdk.json"
+        Alamofire.request(url).response { response in
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Error: \(String(describing: response.error))")
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)")
+                let json = JSON(data: data)
+                for (_,subJson):(String, JSON) in json {
+                    print(subJson["facility"])
+                    
+                }
+            }
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.setupOverlay.frame.origin.y -= keyboardSize.height
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.setupOverlay.frame.origin.y += keyboardSize.height
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension UITextField: UITextFieldDelegate {
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
 }
 
 extension ViewController: MGLMapViewDelegate {
@@ -126,4 +211,5 @@ extension ViewController: MGLMapViewDelegate {
     }
     
 }
+
 

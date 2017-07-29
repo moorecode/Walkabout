@@ -28,7 +28,7 @@
 		BF65FE451F2C088300DA110B /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE441F2C088300DA110B /* Playground.swift */; };
 		BF69B2921F2C0FCB0064D7B2 /* DataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */; };
 		BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD582B11F2B6F0600E39038 /* MapItem.swift */; };
-		FA606C531F2C1F9900A49240 /* DirectionsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA606C521F2C1F9900A49240 /* DirectionsHelpers.swift */; };
+		BFEA6C591F2C4274009A995F /* DirectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEA6C581F2C4274009A995F /* DirectionHelper.swift */; };
 		FA89C52E1F2BFB680097A6F1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA89C52C1F2BFB680097A6F1 /* Interface.storyboard */; };
 		FA89C5301F2BFB680097A6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA89C52F1F2BFB680097A6F1 /* Assets.xcassets */; };
 		FA89C5371F2BFB690097A6F1 /* WalkaboutWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FA89C5361F2BFB690097A6F1 /* WalkaboutWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -121,9 +121,9 @@
 		BF65FE441F2C088300DA110B /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetter.swift; sourceTree = "<group>"; };
 		BFD582B11F2B6F0600E39038 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
+		BFEA6C581F2C4274009A995F /* DirectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionHelper.swift; sourceTree = "<group>"; };
 		C772AF4F8EBA7D0A52C15C1F /* Pods-WalkaboutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8A08556A60FD43BAD7EF18 /* Pods_WalkaboutWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkaboutWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA606C521F2C1F9900A49240 /* DirectionsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsHelpers.swift; sourceTree = "<group>"; };
 		FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkabout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA89C52A1F2BFB680097A6F1 /* WalkaboutWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkaboutWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA89C52D1F2BFB680097A6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */,
 				BF54CEC61F2B4A630002681C /* Info.plist */,
 				BFD582B11F2B6F0600E39038 /* MapItem.swift */,
-				FA606C521F2C1F9900A49240 /* DirectionsHelpers.swift */,
+				BFEA6C581F2C4274009A995F /* DirectionHelper.swift */,
 			);
 			path = Walkabout;
 			sourceTree = "<group>";
@@ -613,10 +613,10 @@
 				BF65FE411F2C055A00DA110B /* Furniture.swift in Sources */,
 				BF65FE431F2C067B00DA110B /* Toilet.swift in Sources */,
 				BF69B2921F2C0FCB0064D7B2 /* DataGetter.swift in Sources */,
+				BFEA6C591F2C4274009A995F /* DirectionHelper.swift in Sources */,
 				BF65FE371F2C01CE00DA110B /* DrinkningFountain.swift in Sources */,
 				BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */,
 				BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */,
-				FA606C531F2C1F9900A49240 /* DirectionsHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +896,7 @@
 			baseConfigurationReference = 934E3B4228C70330DB6B132E /* Pods-WalkaboutWatch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = YRKSKTGWBF;
 				INFOPLIST_FILE = "WalkaboutWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode.watchkitapp.extension;
@@ -913,6 +914,7 @@
 			baseConfigurationReference = 075A0117DBEC20D093313C94 /* Pods-WalkaboutWatch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = YRKSKTGWBF;
 				INFOPLIST_FILE = "WalkaboutWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode.watchkitapp.extension;

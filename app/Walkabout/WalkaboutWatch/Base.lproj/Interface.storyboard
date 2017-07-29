@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13034"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,7 +19,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WalkaboutWatch" customModuleProvider="target">
                     <items>
-                        <group width="1" height="161" alignment="left" id="aIk-6j-5Nv"/>
+                        <imageView height="155" alignment="left" id="s6i-3Y-GtX"/>
                         <separator alignment="left" id="2gK-VN-x7s"/>
                         <button width="1" alignment="left" title="More Info" id="dSk-R0-UBf">
                             <connections>
@@ -27,9 +27,12 @@
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="imageView" destination="s6i-3Y-GtX" id="11X-dl-s7Q"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="341.5"/>
+            <point key="canvasLocation" x="220" y="366.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
