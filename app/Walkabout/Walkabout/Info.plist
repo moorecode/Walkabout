@@ -40,6 +40,10 @@
 	<string>Shows your location on the map help us generate routes for you.</string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Archive.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
