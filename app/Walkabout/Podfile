@@ -8,6 +8,7 @@ def walkabout
     pod 'Alamofire'
     pod 'RealmSwift'
     pod 'MapboxDirections.swift', '~> 0.10'
+    pod 'MapboxGeocoder.swift', '~> 0.6'
 end
 
 target 'Walkabout' do

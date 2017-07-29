@@ -17,6 +17,7 @@
 		BF54CEC51F2B4A630002681C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */; };
 		BF54CED01F2B4A640002681C /* WalkaboutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CECF1F2B4A640002681C /* WalkaboutTests.swift */; };
 		BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD582B11F2B6F0600E39038 /* MapItem.swift */; };
+		FA606C531F2C1F9900A49240 /* DirectionsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA606C521F2C1F9900A49240 /* DirectionsHelpers.swift */; };
 		FA89C52E1F2BFB680097A6F1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA89C52C1F2BFB680097A6F1 /* Interface.storyboard */; };
 		FA89C5301F2BFB680097A6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA89C52F1F2BFB680097A6F1 /* Assets.xcassets */; };
 		FA89C5371F2BFB690097A6F1 /* WalkaboutWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FA89C5361F2BFB690097A6F1 /* WalkaboutWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -25,7 +26,6 @@
 		FA89C5401F2BFB690097A6F1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89C53F1F2BFB690097A6F1 /* NotificationController.swift */; };
 		FA89C5421F2BFB690097A6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA89C5411F2BFB690097A6F1 /* Assets.xcassets */; };
 		FA89C5471F2BFB690097A6F1 /* WalkaboutWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FA89C52A1F2BFB680097A6F1 /* WalkaboutWatch.app */; };
-		FA89C5511F2C13140097A6F1 /* ViewControllerTestRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89C5501F2C13140097A6F1 /* ViewControllerTestRoutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +101,7 @@
 		BFD582B11F2B6F0600E39038 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
 		C772AF4F8EBA7D0A52C15C1F /* Pods-WalkaboutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8A08556A60FD43BAD7EF18 /* Pods_WalkaboutWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkaboutWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA606C521F2C1F9900A49240 /* DirectionsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsHelpers.swift; sourceTree = "<group>"; };
 		FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkabout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA89C52A1F2BFB680097A6F1 /* WalkaboutWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkaboutWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA89C52D1F2BFB680097A6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		FA89C5411F2BFB690097A6F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA89C5431F2BFB690097A6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA89C5441F2BFB690097A6F1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		FA89C5501F2C13140097A6F1 /* ViewControllerTestRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTestRoutes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,7 @@
 				BF54CEC31F2B4A630002681C /* LaunchScreen.storyboard */,
 				BF54CEC61F2B4A630002681C /* Info.plist */,
 				BFD582B11F2B6F0600E39038 /* MapItem.swift */,
-				FA89C5501F2C13140097A6F1 /* ViewControllerTestRoutes.swift */,
+				FA606C521F2C1F9900A49240 /* DirectionsHelpers.swift */,
 			);
 			path = Walkabout;
 			sourceTree = "<group>";
@@ -561,8 +561,8 @@
 			files = (
 				BF54CEBD1F2B4A630002681C /* ViewController.swift in Sources */,
 				BF54CEBB1F2B4A630002681C /* AppDelegate.swift in Sources */,
-				FA89C5511F2C13140097A6F1 /* ViewControllerTestRoutes.swift in Sources */,
 				BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */,
+				FA606C531F2C1F9900A49240 /* DirectionsHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
