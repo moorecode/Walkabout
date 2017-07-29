@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-
+// API URL: https://www.data.act.gov.au/resource/n2d8-bhdk.json
 class ArtFacility: Object {
     
     @objc dynamic var address = ""

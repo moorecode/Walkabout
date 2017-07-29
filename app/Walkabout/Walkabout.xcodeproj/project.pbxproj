@@ -17,7 +17,7 @@
 		BF54CED01F2B4A640002681C /* WalkaboutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54CECF1F2B4A640002681C /* WalkaboutTests.swift */; };
 		BF65FE331F2BFC9300DA110B /* ArtFacility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE321F2BFC9300DA110B /* ArtFacility.swift */; };
 		BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE341F2BFFBB00DA110B /* ArtItem.swift */; };
-		BF65FE371F2C01CE00DA110B /* DinkningFountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE361F2C01CE00DA110B /* DinkningFountain.swift */; };
+		BF65FE371F2C01CE00DA110B /* DrinkningFountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE361F2C01CE00DA110B /* DrinkningFountain.swift */; };
 		BF65FE391F2C020C00DA110B /* DogPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE381F2C020C00DA110B /* DogPark.swift */; };
 		BF65FE3B1F2C02CD00DA110B /* Beach.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE3A1F2C02CD00DA110B /* Beach.swift */; };
 		BF65FE3D1F2C039200DA110B /* FitnessSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE3C1F2C039200DA110B /* FitnessSite.swift */; };
@@ -25,7 +25,7 @@
 		BF65FE411F2C055A00DA110B /* Furniture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE401F2C055A00DA110B /* Furniture.swift */; };
 		BF65FE431F2C067B00DA110B /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE421F2C067B00DA110B /* Toilet.swift */; };
 		BF65FE451F2C088300DA110B /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE441F2C088300DA110B /* Playground.swift */; };
-		BF65FE471F2C08C400DA110B /* DataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65FE461F2C08C400DA110B /* DataGetter.swift */; };
+		BF69B2921F2C0FCB0064D7B2 /* DataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */; };
 		BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD582B11F2B6F0600E39038 /* MapItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		BF54CED11F2B4A640002681C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF65FE321F2BFC9300DA110B /* ArtFacility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtFacility.swift; sourceTree = "<group>"; };
 		BF65FE341F2BFFBB00DA110B /* ArtItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtItem.swift; sourceTree = "<group>"; };
-		BF65FE361F2C01CE00DA110B /* DinkningFountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinkningFountain.swift; sourceTree = "<group>"; };
+		BF65FE361F2C01CE00DA110B /* DrinkningFountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkningFountain.swift; sourceTree = "<group>"; };
 		BF65FE381F2C020C00DA110B /* DogPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPark.swift; sourceTree = "<group>"; };
 		BF65FE3A1F2C02CD00DA110B /* Beach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beach.swift; sourceTree = "<group>"; };
 		BF65FE3C1F2C039200DA110B /* FitnessSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessSite.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		BF65FE401F2C055A00DA110B /* Furniture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furniture.swift; sourceTree = "<group>"; };
 		BF65FE421F2C067B00DA110B /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 		BF65FE441F2C088300DA110B /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
-		BF65FE461F2C08C400DA110B /* DataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetter.swift; sourceTree = "<group>"; };
+		BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetter.swift; sourceTree = "<group>"; };
 		BFD582B11F2B6F0600E39038 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
 		C772AF4F8EBA7D0A52C15C1F /* Pods-WalkaboutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkaboutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WalkaboutTests/Pods-WalkaboutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA6FAC27E47806592141C3D8 /* Pods_Walkabout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Walkabout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +148,7 @@
 			children = (
 				BF65FE321F2BFC9300DA110B /* ArtFacility.swift */,
 				BF65FE341F2BFFBB00DA110B /* ArtItem.swift */,
-				BF65FE361F2C01CE00DA110B /* DinkningFountain.swift */,
+				BF65FE361F2C01CE00DA110B /* DrinkningFountain.swift */,
 				BF65FE381F2C020C00DA110B /* DogPark.swift */,
 				BF65FE3A1F2C02CD00DA110B /* Beach.swift */,
 				BF65FE3C1F2C039200DA110B /* FitnessSite.swift */,
@@ -156,7 +156,7 @@
 				BF65FE401F2C055A00DA110B /* Furniture.swift */,
 				BF65FE421F2C067B00DA110B /* Toilet.swift */,
 				BF65FE441F2C088300DA110B /* Playground.swift */,
-				BF65FE461F2C08C400DA110B /* DataGetter.swift */,
+				BF69B2911F2C0FCB0064D7B2 /* DataGetter.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -384,8 +384,8 @@
 				BF65FE3F1F2C04C200DA110B /* Barbeque.swift in Sources */,
 				BF65FE411F2C055A00DA110B /* Furniture.swift in Sources */,
 				BF65FE431F2C067B00DA110B /* Toilet.swift in Sources */,
-				BF65FE471F2C08C400DA110B /* DataGetter.swift in Sources */,
-				BF65FE371F2C01CE00DA110B /* DinkningFountain.swift in Sources */,
+				BF69B2921F2C0FCB0064D7B2 /* DataGetter.swift in Sources */,
+				BF65FE371F2C01CE00DA110B /* DrinkningFountain.swift in Sources */,
 				BF65FE351F2BFFBB00DA110B /* ArtItem.swift in Sources */,
 				BFD582B21F2B6F0600E39038 /* MapItem.swift in Sources */,
 			);
@@ -478,9 +478,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
@@ -526,6 +527,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moorecode;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -537,10 +539,9 @@
 			baseConfigurationReference = 6C714A43931E13FA5F59E584 /* Pods-Walkabout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R7QW3TS75E;
+				DEVELOPMENT_TEAM = YRKSKTGWBF;
 				INFOPLIST_FILE = Walkabout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -553,10 +554,9 @@
 			baseConfigurationReference = 356D081FD54A6A073B56DA80 /* Pods-Walkabout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R7QW3TS75E;
+				DEVELOPMENT_TEAM = YRKSKTGWBF;
 				INFOPLIST_FILE = Walkabout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = prg.govhack.Walkabout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

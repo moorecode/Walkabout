@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-// API URK: https://www.data.act.gov.au/resource/gtig-tf5m.json
+// API URL: https://www.data.act.gov.au/resource/gtig-tf5m.json
 class Beach: Object {
     @objc dynamic var name = ""
     @objc dynamic var lat: Float = 0.0

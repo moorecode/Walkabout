@@ -30,7 +30,13 @@ class ViewController: UIViewController {
     let dataSets:[DataSet] = [.ACTArtsFacilitiesList, .ACTPublicArtList, .DrinkingFountains, .FencedDogParks, .FitnessSites, .PublicBarbequesintheACT, .PublicFurnitureintheACT, .PublicToiletsintheACT, .TownAndDistrictPlaygrounds]
 
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
+        
+        let getter = DataGetter()
+        getter.getData()
+        
         // Do any additional setup after loading the view, typically from a nib.
         let url = URL(string: "mapbox://styles/mapbox/outdoors-v10")
         let mapView = MGLMapView(frame: view.bounds, styleURL: url)
@@ -67,24 +73,6 @@ class ViewController: UIViewController {
         blurEfffectView.layer.cornerRadius = 5
         blurEfffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bottomOverlay.addSubview(blurEfffectView)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let url = "https://www.data.act.gov.au/resource/n2d8-bhdk.json"
-        Alamofire.request(url).response { response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Error: \(String(describing: response.error))")
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)")
-                let json = JSON(data: data)
-                for (_,subJson):(String, JSON) in json {
-                    print(subJson["facility"])
-                }
-            }
-            
-        }
     }
 
     override func didReceiveMemoryWarning() {
