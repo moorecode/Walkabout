@@ -18,6 +18,8 @@ import SwiftyButton
 class ViewController: UIViewController {
     
     let walkaboutButton = PressableButton()
+    let mapView = MGLMapView(frame: CGRect.zero, styleURL: URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy"))
+    
     
     override func viewDidLoad() {
         
@@ -25,8 +27,7 @@ class ViewController: UIViewController {
     
         
         // Do any additional setup after loading the view, typically from a nib.
-        let url = URL(string: "mapbox://styles/jbwhitcombe/cj5ol2ww602w62rldbmxda5dy")
-        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        mapView.frame = view.bounds
         mapView.delegate = self
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.logoView.isHidden = true
@@ -64,10 +65,10 @@ class ViewController: UIViewController {
 //        let bbqs = realm.objects(Barbeque.self)
         let furniture = realm.objects(Furniture.self)
 //        let toilets = realm.objects(Toilet.self)
-        
+//        
         for f in furniture {
             let annotation = MGLPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
             annotation.title = "Public Furniture"
             annotation.subtitle = f.type
             mapView.addAnnotation(annotation)
@@ -115,6 +116,10 @@ extension ViewController: MGLMapViewDelegate {
         
         // Animate the camera movement over 5 seconds.
         mapView.setCamera(camera, withDuration: 120, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+    }
+    
+    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+        return MGLAnnotationImage(image: #imageLiteral(resourceName: "bench"), reuseIdentifier: "Furniture")
     }
     
 }
