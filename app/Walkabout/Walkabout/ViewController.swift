@@ -82,6 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let bbqs = realm.objects(Barbeque.self)
         let furniture = realm.objects(Furniture.self)
         let toilets = realm.objects(Toilet.self)
+        let playgrounds = realm.objects(Playground.self)
         var pointAnnotations = [MGLPointAnnotation]()
        
         for ai in artItems {
@@ -112,7 +113,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             point.title = "Fitness Equipment"
             point.subtitle = f.type
             pointAnnotations.append(point)
-            pointRegister[String(CLLocationDegrees(f.lat)) + String(CLLocationDegrees(f.lon))] = ArtItem.self
+            pointRegister[String(CLLocationDegrees(f.lat)) + String(CLLocationDegrees(f.lon))] = FitnessSite.self
         }
         for f in furniture {
             let point = MGLPointAnnotation()
@@ -120,7 +121,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             point.title = "Public Furniture"
             point.subtitle = f.type
             pointAnnotations.append(point)
-            pointRegister[String(CLLocationDegrees(f.lat)) + String(CLLocationDegrees(f.lon))] = ArtItem.self
+            pointRegister[String(CLLocationDegrees(f.lat)) + String(CLLocationDegrees(f.lon))] = Furniture.self
         }
         for b in bbqs {
             let point = MGLPointAnnotation()
@@ -137,6 +138,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             point.subtitle = t.type
             pointAnnotations.append(point)
             pointRegister[String(CLLocationDegrees(t.lat)) + String(CLLocationDegrees(t.lon))] = Toilet.self
+        }
+        
+        for p in playgrounds {
+            let point = MGLPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(p.lat), longitude: CLLocationDegrees(p.lon))
+            point.title = "Playground"
+            point.subtitle = p.equipment
+            pointAnnotations.append(point)
+            pointRegister[String(CLLocationDegrees(p.lat)) + String(CLLocationDegrees(p.lon))] = Toilet.self
         }
 
 
