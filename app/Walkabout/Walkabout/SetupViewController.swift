@@ -49,20 +49,15 @@ class SetupViewController: UIViewController {
         
         if hour.hour! < 8 {
             hello.text = "Early Morning"
-        }
-        else if hour.hour! < 11 {
+        } else if hour.hour! < 11 {
             hello.text = "Late Morning"
-        }
-        else if hour.hour! < 15 {
+        } else if hour.hour! < 15 {
             hello.text = "Early Afternoon"
-        }
-        else if hour.hour! < 17 {
+        } else if hour.hour! < 17 {
             hello.text = "Afternoon"
-        }
-        else if hour.hour! < 20 {
+        } else if hour.hour! < 20 {
             hello.text = "Evening"
-        }
-        else {
+        } else {
             hello.text = "Night"
         }
         
@@ -83,11 +78,11 @@ class SetupViewController: UIViewController {
         let dogButton = FlatButton()
         let dogImage = UIImageView()
         dogImage.image = #imageLiteral(resourceName: "dog")
-        dogButton.setTitle("Doggo", for: .normal)
+        dogButton.setTitle("Dog Park", for: .normal)
         let playgroundButton = FlatButton()
         let playgroundImage = UIImageView()
         playgroundImage.image = #imageLiteral(resourceName: "playground")
-        playgroundButton.setTitle("Playgrounds", for: .normal)
+        playgroundButton.setTitle("Playground", for: .normal)
         let artButton = FlatButton()
         let artImage = UIImageView()
         artImage.image = #imageLiteral(resourceName: "art")
@@ -99,7 +94,7 @@ class SetupViewController: UIViewController {
         let fountainButton = FlatButton()
         let fountainImage = UIImageView()
         fountainImage.image = #imageLiteral(resourceName: "water")
-        fountainButton.setTitle("Fountain", for: .normal)
+        fountainButton.setTitle("Water Fountain", for: .normal)
         let toiletButton = FlatButton()
         let toiletImage = UIImageView()
         toiletImage.image = #imageLiteral(resourceName: "toilet")
@@ -107,7 +102,7 @@ class SetupViewController: UIViewController {
         let fitnessButton = FlatButton()
         let fitnessImage = UIImageView()
         fitnessImage.image = #imageLiteral(resourceName: "fitness")
-        fitnessButton.setTitle("Fitness", for: .normal)
+        fitnessButton.setTitle("Fitness Equipment", for: .normal)
         let barbequeButton = FlatButton()
         let barbequeImage = UIImageView()
         barbequeImage.image = #imageLiteral(resourceName: "barbeque")
@@ -124,6 +119,8 @@ class SetupViewController: UIViewController {
         for button in buttons {
             button.color = UIColor.flatGray()
             button.titleLabel?.font = UIFont(name: "Archive", size: 26)
+            button.titleLabel?.minimumScaleFactor = 0.5
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
         }
         

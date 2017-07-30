@@ -72,8 +72,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         walkaboutButton.addTarget(self, action: #selector(walkaboutButtonTapped), for: .touchUpInside)
+        
+        let directionsButton = PressableButton()
+        directionsButton.colors = .init(button: UIColor.flatBlue(), shadow: UIColor.flatBlueColorDark())
+        directionsButton.setImage(#imageLiteral(resourceName: "location"), for: .normal)
+        directionsButton.imageEdgeInsets = UIEdgeInsetsMake(30,30,30,30)
+        view.addSubview(directionsButton)
+        directionsButton.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.topMargin)
+            make.right.equalTo(view.snp.rightMargin)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
+        }
 
-        /*
         let realm = try! Realm()
         let artFacilities = realm.objects(ArtFacility.self)
         let artItems = realm.objects(ArtItem.self)
@@ -153,7 +164,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         print(pointAnnotations)
         map.addAnnotations(pointAnnotations)
- */
+
         
     }
     
@@ -185,6 +196,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let completionHandler:(SetupViewController)->Void = { childVC in
             
             // Call whatever the fuck you want here
+            for c in childVC.output {
+                print(String(describing: c))
+            }
             
             self.commenceRouteDrawing(items: childVC.output)
             
