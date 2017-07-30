@@ -71,8 +71,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         walkaboutButton.addTarget(self, action: #selector(walkaboutButtonTapped), for: .touchUpInside)
-        
-        
+
+        /*
         let realm = try! Realm()
         let artFacilities = realm.objects(ArtFacility.self)
         let artItems = realm.objects(ArtItem.self)
@@ -148,14 +148,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             pointAnnotations.append(point)
             pointRegister[String(CLLocationDegrees(p.lat)) + String(CLLocationDegrees(p.lon))] = Toilet.self
         }
-
+ 
 
         print(pointAnnotations)
         map.addAnnotations(pointAnnotations)
+ */
         
     }
     
-    func commenceRouteDrawing() {
+    func commenceRouteDrawing(items: [Bool]) {
         mapView?.showsUserLocation = true
         let helper = DirectionsHelpers.init()
         let point1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478))
@@ -176,30 +177,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        LocationManager.requestAlwaysAuthorization()
-        LocationManager.startUpdatingLocation()
-        
-//        let realm = try! Realm()
-//        let artFacilities = realm.objects(ArtFacility.self)
-//        let artItems = realm.objects(ArtItem.self)
-//        let drinkingFountains = realm.objects(DrinkingFountain.self)
-//        let dogParks = realm.objects(DogPark.self)
-//        let finessSites = realm.objects(FitnessSites.self)
-//        let bbqs = realm.objects(Barbeque.self)
-//        let furniture = realm.objects(Furniture.self)
-//        let toilets = realm.objects(Toilet.self)
-//        
-//        for f in furniture {
-//            let annotation = MGLPointAnnotation()
-//            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(f.lat), longitude: CLLocationDegrees(f.lon))
-//            annotation.title = "Public Furniture"
-//            annotation.subtitle = f.type
-//            mapView!.addAnnotation(annotation)
-//        }
-    }
-    
     @objc func walkaboutButtonTapped(sender:UIButton!) {
         
         // Setup completion handler for setUpViewController
@@ -207,7 +184,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             // Call whatever the fuck you want here
             
-            self.commenceRouteDrawing()
+            self.commenceRouteDrawing(childVC.output)
             
         }
         

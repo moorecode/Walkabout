@@ -30,6 +30,9 @@ class SetupViewController: UIViewController {
     let closeButton = PressableButton()
     let startButton = PressableButton()
     let locationButton = PressableButton()
+    var buttons = [UIButton]()
+    
+    var output = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +119,7 @@ class SetupViewController: UIViewController {
             image.contentMode = .scaleAspectFit
         }
         
-        let buttons = [dogButton, playgroundButton, artButton, benchButton, fountainButton, toiletButton, fitnessButton, barbequeButton]
+        buttons = [dogButton, playgroundButton, artButton, benchButton, fountainButton, toiletButton, fitnessButton, barbequeButton]
         
         for button in buttons {
             button.color = UIColor.flatGray()
@@ -188,6 +191,10 @@ class SetupViewController: UIViewController {
     }
     
     @objc func begin() {
+        output = []
+        for button in buttons {
+            output.append(button.isSelected)
+        }
         self.dismiss()
         
     }
