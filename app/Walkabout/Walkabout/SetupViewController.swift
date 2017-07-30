@@ -32,7 +32,7 @@ class SetupViewController: UIViewController {
     let locationButton = PressableButton()
     var buttons = [UIButton]()
     
-    var output = [Bool]()
+    var output = [AnyClass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,8 +192,37 @@ class SetupViewController: UIViewController {
     
     @objc func begin() {
         output = []
-        for button in buttons {
-            output.append(button.isSelected)
+        for (index,button) in buttons.enumerated() {
+            if button.isSelected {
+                switch index {
+                case 0:
+                    output.append(DogPark.self)
+                    break;
+                case 1:
+                    output.append(Playground.self)
+                    break;
+                case 2:
+                    output.append(ArtItem.self)
+                    break;
+                case 3:
+                    output.append(Furniture.self)
+                    break;
+                case 4:
+                    output.append(DrinkingFountain.self)
+                    break;
+                case 5:
+                    output.append(Toilet.self)
+                    break;
+                case 6:
+                    output.append(FitnessSite.self)
+                    break;
+                case 7:
+                    output.append(Barbeque.self)
+                    break;
+                default:
+                    break;
+                }
+            }
         }
         self.dismiss()
         

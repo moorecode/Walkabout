@@ -157,7 +157,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func commenceRouteDrawing(items: [Bool]) {
+    func commenceRouteDrawing(items: [AnyClass]) {
+        // JOSH
         mapView?.showsUserLocation = true
         let helper = DirectionsHelpers.init()
         let point1 = Waypoint(coordinate: (mapView?.userLocation?.coordinate)!)
@@ -293,24 +294,24 @@ class CustomAnnotationView: MGLAnnotationView {
         switch String(describing: type.self) {
             case String(describing: ArtFacility.self):
                 return #imageLiteral(resourceName: "art")
-        case String(describing: ArtItem.self):
-            return #imageLiteral(resourceName: "art")
-        case String(describing: DrinkingFountain.self):
-            return #imageLiteral(resourceName: "water")
-        case String(describing: DogPark.self):
-            return #imageLiteral(resourceName: "dog")
-        case String(describing: FitnessSite.self):
-            return #imageLiteral(resourceName: "fitness")
-        case String(describing: Barbeque.self):
-            return #imageLiteral(resourceName: "barbeque")
-        case String(describing: Furniture.self):
-            return #imageLiteral(resourceName: "bench")
-        case String(describing: Toilet.self):
-            return #imageLiteral(resourceName: "toilet")
-        case String(describing: Playground.self):
-            return #imageLiteral(resourceName: "playground")
-        default:
-            fatalError("No image for class: \(String(describing: type.self))")
+            case String(describing: ArtItem.self):
+                return #imageLiteral(resourceName: "art")
+            case String(describing: DrinkingFountain.self):
+                return #imageLiteral(resourceName: "water")
+            case String(describing: DogPark.self):
+                return #imageLiteral(resourceName: "dog")
+            case String(describing: FitnessSite.self):
+                return #imageLiteral(resourceName: "fitness")
+            case String(describing: Barbeque.self):
+                return #imageLiteral(resourceName: "barbeque")
+            case String(describing: Furniture.self):
+                return #imageLiteral(resourceName: "bench")
+            case String(describing: Toilet.self):
+                return #imageLiteral(resourceName: "toilet")
+            case String(describing: Playground.self):
+                return #imageLiteral(resourceName: "playground")
+            default:
+                fatalError("No image for class: \(String(describing: type.self))")
         }
         return UIImage()
     }
