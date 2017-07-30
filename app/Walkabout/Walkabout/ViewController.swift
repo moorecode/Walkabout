@@ -31,6 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+    
         
         LocationManager.delegate = self
         LocationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -159,7 +160,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func commenceRouteDrawing(items: [Bool]) {
         mapView?.showsUserLocation = true
         let helper = DirectionsHelpers.init()
-        let point1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.274452, longitude: 149.098478))
+        let point1 = Waypoint(coordinate: (mapView?.userLocation?.coordinate)!)
         let point2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: -35.279, longitude: 149.05))
         let waypoints = [point1, point2]
         helper.GenerateAndDisplay(waypoints:waypoints, mapView:self.mapView!)
