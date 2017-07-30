@@ -30,7 +30,7 @@ class SetupViewController: UIViewController {
     let closeButton = PressableButton()
     let startButton = PressableButton()
     let locationButton = PressableButton()
-    var buttons = [UIButton]()
+    var buttons = [FlatButton]()
     
     var output = [AnyClass]()
     
