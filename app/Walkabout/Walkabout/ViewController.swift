@@ -184,7 +184,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             // Call whatever the fuck you want here
             
-            self.commenceRouteDrawing(childVC.output)
+            self.commenceRouteDrawing(items: childVC.output)
             
         }
         
