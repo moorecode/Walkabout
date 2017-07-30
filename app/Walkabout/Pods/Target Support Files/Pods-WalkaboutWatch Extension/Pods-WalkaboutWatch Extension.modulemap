@@ -1,6 +1,0 @@
-framework module Pods_WalkaboutWatch_Extension {
-  umbrella header "Pods-WalkaboutWatch Extension-umbrella.h"
-
-  export *
-  module * { export * }
-}
